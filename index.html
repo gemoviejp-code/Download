@@ -13,6 +13,11 @@
             margin: 0;
             padding: 0;
         }
+        .container {
+            max-width: 1200px; /* 任意の幅 */
+            margin: 0 auto; /* 中央揃え */
+            padding: 0 20px; /* 左右の余白 */
+        }
         nav {
             background-color: #000080; /* 紺 */
             padding: 10px;
@@ -47,9 +52,9 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            margin: 0; /* マージンをリセット */
+            margin: 0;
             display: inline-block;
-            text-align: center; /* テキストを中央揃え */
+            text-align: center;
         }
         button:hover, a.button:hover {
             opacity: 0.8;
@@ -76,95 +81,95 @@
         }
         #gemovie .download-section {
             display: flex;
-            justify-content: flex-start; /* 左揃え */
-            align-items: center; /* 縦方向の中央揃え */
-            margin-left: 20px; /* インデント */
-            margin-bottom: 10px; /* セクション間の間隔 */
+            justify-content: center; /* 中央揃えに変更 */
+            align-items: center;
+            margin-bottom: 10px;
         }
         #gemovie .download-section h3 {
-            margin: 0; /* デフォルトのマージンをリセット */
-            width: 500px; /* 固定幅で日本語版と多言語版を揃える */
-            min-width: 500px; /* 最小幅を指定 */
+            margin: 0;
+            width: 500px;
+            min-width: 500px;
         }
         #gemovie .download-links {
             display: flex;
-            justify-content: flex-start; /* ボタンを左揃え */
-            gap: 15px; /* リンク間の間隔 */
+            justify-content: center; /* 中央揃えに変更 */
+            gap: 15px;
         }
         #gemovie .download-links a.button {
-            margin: 0; /* デフォルトのマージンをリセット */
+            margin: 0;
         }
         #gemovie .download-links .subtext {
-            display: block; /* 改行して表示 */
-            font-size: 0.8em; /* フォントサイズを小さく（任意） */
-            margin-top: 5px; /* テキスト間の間隔（任意） */
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+            text-align: center; /* サブテキストも中央揃え */
         }
     </style>
 </head>
 <body>
-    <nav>
-        <label for="tab-gemovie">Gemovie</label>
-        <label for="tab-usage">使い方</label>
-        <label for="tab-faq">FAQ</label>
-        <label for="tab-contact">問い合わせ</label>
-    </nav>
+    <div class="container">
+        <nav>
+            <label for="tab-gemovie">Gemovie</label>
+            <label for="tab-usage">使い方</label>
+            <label for="tab-faq">FAQ</label>
+            <label for="tab-contact">問い合わせ</label>
+        </nav>
 
-    <input type="radio" id="tab-gemovie" name="tab" checked>
-    <input type="radio" id="tab-download" name="tab">
-    <input type="radio" id="tab-usage" name="tab">
-    <input type="radio" id="tab-faq" name="tab">
-    <input type="radio" id="tab-contact" name="tab">
+        <input type="radio" id="tab-gemovie" name="tab" checked>
+        <input type="radio" id="tab-download" name="tab">
+        <input type="radio" id="tab-usage" name="tab">
+        <input type="radio" id="tab-faq" name="tab">
+        <input type="radio" id="tab-contact" name="tab">
 
-    <div id="gemovie" class="tab-content">
-        <h1>Gemovie</h1>
-        <p>AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
-        <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
-        <p>※作成にはGoogleアカウントが必要です。</p>
-        <h2>ダウンロード</h2>
-        <div class="download-section">
-            <h3>日本語版 (VOICEVOX 音声)</h3>
-            <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+        <div id="gemovie" class="tab-content">
+            <h1>Gemovie</h1>
+            <p>AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
+            <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
+            <p>※作成にはGoogleアカウントが必要です。</p>
+            <h2>ダウンロード</h2>
+            <div class="download-section">
+                <h3>日本語版 (VOICEVOX 音声)</h3>
+                <div class="download-links">
+                    <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                    <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+                </div>
+            </div>
+            <div class="download-section">
+                <h3>多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
+                <div class="download-links">
+                    <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                    <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+                </div>
             </div>
         </div>
-        <div class="download-section">
-            <h3>多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
-            <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
-            </div>
+        <div id="usage" class="tab-content">
+            <h1>使い方</h1>
+            <h2>日本語版 Windowsインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
+            <h2>日本語版 MacOSインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+            <h2>日本語版 使い方</h2>
+            <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
+            <h2>多言語版 Windowsインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
+            <h2>多言語版 MacOSインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+            <h2>多言語版 使い方</h2>
+            <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
         </div>
-    </div>
-    <div id="usage" class="tab-content">
-        <h1>使い方</h1>
-        <h2>日本語版 Windowsインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
-        <h2>日本語版 MacOSインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe> <!-- 関連動画が見つからなかったためプレースホルダー -->
-        <h2>日本語版 使い方</h2>
-        <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
-        <h2>多言語版 Windowsインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
-        <h2>多言語版 MacOSインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe> <!-- 関連動画が見つからなかったためプレースホルダー -->
-        <h2>多言語版 使い方</h2>
-        <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div id="faq" class="tab-content">
-        <h1>FAQ</h1>
-        <p>TBD</p>
-    </div>
-
-    <div id="contact" class="tab-content">
-        <h1>お問い合わせ</h1>
-        <form action="#" method="post">
-            <input type="text" placeholder="お名前" required>
-            <input type="email" placeholder="メールアドレス" required>
-            <textarea placeholder="お問い合わせ内容" rows="5" required></textarea>
-            <button type="submit">送信</button>
-        </form>
+        <div id="faq" class="tab-content">
+            <h1>FAQ</h1>
+            <p>TBD</p>
+        </div>
+        <div id="contact" class="tab-content">
+            <h1>お問い合わせ</h1>
+            <form action="#" method="post">
+                <input type="text" placeholder="お名前" required>
+                <input type="email" placeholder="メールアドレス" required>
+                <textarea placeholder="お問い合わせ内容" rows="5" required></textarea>
+                <button type="submit">送信</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
