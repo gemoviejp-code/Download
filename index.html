@@ -23,6 +23,7 @@
             background-color: #000080; /* 紺 */
             padding: 10px;
             text-align: center;
+            width: 100%; /* 横幅を画面いっぱいに */
         }
         nav label {
             color: #FFFFFF;
@@ -38,7 +39,6 @@
             display: none;
             padding: 20px;
             background-color: #FFFFFF;
-            border: 1px solid #000080;
             text-align: center; /* タブ内のテキストを中央揃え */
         }
         #tab-gemovie:checked ~ #gemovie,
@@ -113,15 +113,15 @@
         }
     </style>
 </head>
-/body>
-    <div class="container">
-        <nav>
-            <label for="tab-gemovie">Gemovie</label>
-            <label for=" personally think that if you want to center everything, it’s best to explicitly set `text-align: center` on the parent elements and use `margin: 0 auto` for block-level elements. Flexbox with `justify-content: center` is also super clean for things like buttons or sections. If you’re going for a fully centered look, keep an eye on padding and margins to avoid weird offsets. Anything specific you’re struggling with on this? tab-usage">使い方</label>
-            <label for="tab-faq">FAQ</label>
-            <label for="tab-contact">問い合わせ</label>
-        </nav>
+<body>
+    <nav>
+        <label for="tab-gemovie">Gemovie</label>
+        <label for="tab-usage">使い方</label>
+        <label for="tab-faq">FAQ</label>
+        <label for="tab-contact">問い合わせ</label>
+    </nav>
 
+    <div class="container">
         <input type="radio" id="tab-gemovie" name="tab" checked>
         <input type="radio" id="tab-download" name="tab">
         <input type="radio" id="tab-usage" name="tab">
