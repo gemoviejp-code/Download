@@ -75,16 +75,19 @@
         }
         #gemovie .download-section {
             display: flex;
-            justify-content: space-between; /* 左寄せと右寄せを分離 */
+            justify-content: flex-start; /* 左揃え */
             align-items: center; /* 縦方向の中央揃え */
             margin-left: 20px; /* インデント */
             margin-bottom: 10px; /* セクション間の間隔 */
         }
         #gemovie .download-section h3 {
             margin: 0; /* デフォルトのマージンをリセット */
+            width: 300px; /* 固定幅で日本語版と多言語版を揃える */
+            min-width: 300px; /* 最小幅を指定 */
         }
         #gemovie .download-links {
             display: flex;
+            justify-content: flex-start; /* ボタンを左揃え */
             gap: 15px; /* リンク間の間隔 */
         }
         #gemovie .download-links a.button {
