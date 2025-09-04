@@ -46,7 +46,7 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 0; /* マージンをリセット */
             display: inline-block;
         }
         button:hover, a.button:hover {
@@ -74,15 +74,19 @@
         }
         #gemovie .download-section {
             display: flex;
+            justify-content: space-between; /* 左寄せと右寄せを分離 */
             align-items: center; /* 縦方向の中央揃え */
-            gap: 15px; /* 要素間の間隔 */
             margin-left: 20px; /* インデント */
             margin-bottom: 10px; /* セクション間の間隔 */
         }
         #gemovie .download-section h3 {
             margin: 0; /* デフォルトのマージンをリセット */
         }
-        #gemovie .download-section a.button {
+        #gemovie .download-links {
+            display: flex;
+            gap: 15px; /* リンク間の間隔 */
+        }
+        #gemovie .download-links a.button {
             margin: 0; /* デフォルトのマージンをリセット */
         }
     </style>
@@ -109,13 +113,17 @@
         <h2>ダウンロード</h2>
         <div class="download-section">
             <h3>日本語版 (VOICEVOX 音声)</h3>
-            <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
-            <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+            <div class="download-links">
+                <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
+                <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+            </div>
         </div>
         <div class="download-section">
             <h3>多言語版 (coqui/XTTS-v2 音声 ※商用利用不可)</h3>
-            <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
-            <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+            <div class="download-links">
+                <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
+                <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+            </div>
         </div>
     </div>
     <div id="usage" class="tab-content">
