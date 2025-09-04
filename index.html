@@ -48,6 +48,7 @@
             text-decoration: none;
             margin: 0; /* マージンをリセット */
             display: inline-block;
+            text-align: center; /* テキストを中央揃え */
         }
         button:hover, a.button:hover {
             opacity: 0.8;
@@ -89,6 +90,11 @@
         #gemovie .download-links a.button {
             margin: 0; /* デフォルトのマージンをリセット */
         }
+        #gemovie .download-links .subtext {
+            display: block; /* 改行して表示 */
+            font-size: 0.8em; /* フォントサイズを小さく（任意） */
+            margin-top: 5px; /* テキスト間の間隔（任意） */
+        }
     </style>
 </head>
 <body>
@@ -114,15 +120,15 @@
         <div class="download-section">
             <h3>日本語版 (VOICEVOX 音声)</h3>
             <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
-                <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
             </div>
         </div>
         <div class="download-section">
             <h3>多言語版 (coqui/XTTS-v2 音声 ※商用利用不可)</h3>
             <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
-                <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
             </div>
         </div>
     </div>
