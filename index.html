@@ -72,8 +72,18 @@
         ::placeholder {
             color: #000080;
         }
-        #gemovie h3, #gemovie a.button {
-            margin-left: 20px; /* ダウンロードセクションのインデント */
+        #gemovie .download-section {
+            display: flex;
+            align-items: center; /* 縦方向の中央揃え */
+            gap: 15px; /* 要素間の間隔 */
+            margin-left: 20px; /* インデント */
+            margin-bottom: 10px; /* セクション間の間隔 */
+        }
+        #gemovie .download-section h3 {
+            margin: 0; /* デフォルトのマージンをリセット */
+        }
+        #gemovie .download-section a.button {
+            margin: 0; /* デフォルトのマージンをリセット */
         }
     </style>
 </head>
@@ -97,12 +107,16 @@
         <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
         <p>※作成にはGoogleアカウントが必要です。</p>
         <h2>ダウンロード</h2>
-        <h3>日本語版 (VOICEVOX 音声)</h3>
-        <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a><br>
-        <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
-        <h3>多言語版 (coqui/XTTS-v2 音声 ※商用利用不可)</h3>
-        <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a><br>
-        <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+        <div class="download-section">
+            <h3>日本語版 (VOICEVOX 音声)</h3>
+            <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
+            <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+        </div>
+        <div class="download-section">
+            <h3>多言語版 (coqui/XTTS-v2 音声 ※商用利用不可)</h3>
+            <a href="#" class="button">Windows用インストーラー（Windows10以降のみ）</a>
+            <a href="#" class="button">MacOS用インストーラー(Apple Siliconのみ)</a>
+        </div>
     </div>
     <div id="usage" class="tab-content">
         <h1>使い方</h1>
