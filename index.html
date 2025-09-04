@@ -12,10 +12,11 @@
             color: #000080; /* 紺 */
             margin: 0;
             padding: 0;
+            text-align: center; /* 全体のテキストを中央揃え */
         }
         .container {
             max-width: 1200px; /* 任意の幅 */
-            margin: 0 auto; /* 中央揃え */
+            margin: 0 auto; /* ページ全体を中央に */
             padding: 0 20px; /* 左右の余白 */
         }
         nav {
@@ -28,6 +29,7 @@
             padding: 10px 20px;
             cursor: pointer;
             font-weight: bold;
+            display: inline-block; /* ラベルを中央揃えしやすく */
         }
         input[type="radio"] {
             display: none;
@@ -37,6 +39,7 @@
             padding: 20px;
             background-color: #FFFFFF;
             border: 1px solid #000080;
+            text-align: center; /* タブ内のテキストを中央揃え */
         }
         #tab-gemovie:checked ~ #gemovie,
         #tab-download:checked ~ #download,
@@ -52,7 +55,7 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            margin: 0;
+            margin: 0 auto; /* ボタンを中央に */
             display: inline-block;
             text-align: center;
         }
@@ -61,38 +64,42 @@
         }
         iframe {
             width: 100%;
+            max-width: 800px; /* 動画の幅を制限して中央揃えに見えるように */
             height: 315px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px; /* 中央揃え */
+            display: block; /* 中央揃えのためにブロック要素に */
         }
         form {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto; /* フォームはすでに中央揃え */
         }
         input, textarea {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px auto; /* 中央揃え */
             border: 1px solid #000080;
             background-color: #FFFFFF;
             color: #000080;
+            text-align: center; /* 入力テキストも中央揃え */
         }
         ::placeholder {
             color: #000080;
+            text-align: center; /* プレースホルダーも中央揃え */
         }
         #gemovie .download-section {
             display: flex;
-            justify-content: center; /* 中央揃えに変更 */
-            align-items: center;
-            margin-bottom: 10px;
+            flex-direction: column; /* 縦に配置して中央揃えしやすく */
+            align-items: center; /* 縦方向の中央揃え */
+            margin-bottom: 20px;
         }
         #gemovie .download-section h3 {
-            margin: 0;
-            width: 500px;
-            min-width: 500px;
+            margin: 0 0 10px; /* 下に余白を追加 */
+            width: auto; /* 幅を自動に */
+            text-align: center;
         }
         #gemovie .download-links {
             display: flex;
-            justify-content: center; /* 中央揃えに変更 */
+            justify-content: center; /* ボタンを中央揃え */
             gap: 15px;
         }
         #gemovie .download-links a.button {
@@ -102,15 +109,15 @@
             display: block;
             font-size: 0.8em;
             margin-top: 5px;
-            text-align: center; /* サブテキストも中央揃え */
+            text-align: center;
         }
     </style>
 </head>
-<body>
+/body>
     <div class="container">
         <nav>
             <label for="tab-gemovie">Gemovie</label>
-            <label for="tab-usage">使い方</label>
+            <label for=" personally think that if you want to center everything, it’s best to explicitly set `text-align: center` on the parent elements and use `margin: 0 auto` for block-level elements. Flexbox with `justify-content: center` is also super clean for things like buttons or sections. If you’re going for a fully centered look, keep an eye on padding and margins to avoid weird offsets. Anything specific you’re struggling with on this? tab-usage">使い方</label>
             <label for="tab-faq">FAQ</label>
             <label for="tab-contact">問い合わせ</label>
         </nav>
