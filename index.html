@@ -70,7 +70,7 @@
             display: block; /* 中央揃えのためにブロック要素に */
         }
         form {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto; /* フォームはすでに中央揃え */
         }
         input, textarea {
@@ -121,57 +121,62 @@
         <label for="tab-contact">お問い合わせ</label>
     </nav>
 
-    <div class="container">
-        <input type="radio" id="tab-gemovie" name="tab" checked>
-        <input type="radio" id="tab-download" name="tab">
-        <input type="radio" id="tab-usage" name="tab">
-        <input type="radio" id="tab-faq" name="tab">
-        <input type="radio" id="tab-contact" name="tab">
+<div class="container">
+    <input type="radio" id="tab-gemovie" name="tab" checked>
+    <input type="radio" id="tab-download" name="tab">
+    <input type="radio" id="tab-usage" name="tab">
+    <input type="radio" id="tab-faq" name="tab">
+    <input type="radio" id="tab-contact" name="tab">
 
-        <div id="gemovie" class="tab-content">
-            <h1>Gemovie</h1>
-            <p>AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
-            <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
-            <p>※作成にはGoogleアカウントが必要です。</p>
-            <h2>ダウンロード</h2>
-            <div class="download-section">
-                <h3>日本語版 (VOICEVOX 音声)</h3>
-                <div class="download-links">
-                    <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                    <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
-                </div>
-            </div>
-            <div class="download-section">
-                <h3>多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
-                <div class="download-links">
-                    <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                    <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
-                </div>
+    <div id="gemovie" class="tab-content">
+        <h1>Gemovie</h1>
+        <p>AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
+        <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
+        <p>※作成にはGoogleアカウントが必要です。</p>
+        <h2>ダウンロード</h2>
+        <div class="download-section">
+            <h3>日本語版 (VOICEVOX 音声)</h3>
+            <div class="download-links">
+                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
             </div>
         </div>
-        <div id="usage" class="tab-content">
-            <h1>使い方</h1>
-            <h2>日本語版 Windowsインストール手順</h2>
-            <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
-            <h2>日本語版 MacOSインストール手順</h2>
-            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-            <h2>日本語版 使い方</h2>
-            <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
-            <h2>多言語版 Windowsインストール手順</h2>
-            <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
-            <h2>多言語版 MacOSインストール手順</h2>
-            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-            <h2>多言語版 使い方</h2>
-            <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div id="faq" class="tab-content">
-            <h1>FAQ</h1>
-            <p>TBD</p>
-        </div>
-        <div id="contact" class="tab-content">
-            <h1>お問い合わせ</h1>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true" width="1000" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+        <div class="download-section">
+            <h3>多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
+            <div class="download-links">
+                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
+                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+            </div>
         </div>
     </div>
+    <div id="usage" class="tab-content">
+        <h1>使い方</h1>
+        <h2>日本語版 Windowsインストール手順</h2>
+        <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
+        <h2>日本語版 MacOSインストール手順</h2>
+        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+        <h2>日本語版 使い方</h2>
+        <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
+        <h2>多言語版 Windowsインストール手順</h2>
+        <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
+        <h2>多言語版 MacOSインストール手順</h2>
+        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+        <h2>多言語版 使い方</h2>
+        <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="faq" class="tab-content">
+        <h1>FAQ</h1>
+        <p>TBD</p>
+    </div>
+    <div id="contact" class="tab-content">
+        <h1>お問い合わせ</h1>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true" 
+                width="100%" 
+                style="max-width: 640px; height: 100vh; margin: 0 auto; display: block;" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">読み込んでいます…</iframe>
+    </div>
+</div>
 </body>
 </html>
