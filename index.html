@@ -42,7 +42,6 @@
             text-align: center; /* タブ内のテキストを中央揃え */
         }
         #tab-gemovie:checked ~ #gemovie,
-        #tab-download:checked ~ #download,
         #tab-usage:checked ~ #usage,
         #tab-faq:checked ~ #faq,
         #tab-contact:checked ~ #contact {
@@ -506,7 +505,7 @@
                 nav_usage: "उपयोग कैसे करें",
                 nav_faq: "FAQ",
                 nav_contact: "संपर्क करें",
-                gemovie_p1: "एक नवीनतम उपकरण जो AI का उपयोग करके आपकी कहानी को तुरंत वीडियो में बदल देता है",
+                gemovie_p1: "एक नवीन उपकरण जो AI का उपयोग करके आपकी कहानी को तुरंत वीडियो में बदल देता है",
                 gemovie_p2: "Gemovie के साथ, आप AI की शक्ति से आसानी से स्थिर छवियों पर आधारित नैरेशन वाले वीडियो निःशुल्क बना सकते हैं.",
                 gemovie_p3: "*निर्माण के लिए Google खाता आवश्यक है.",
                 gemovie_h2: "डाउनलोड",
@@ -528,6 +527,26 @@
             }
         };
 
+        const langCodes = {
+            "English": "en",
+            "Español": "es",
+            "Français": "fr",
+            "Deutsch": "de",
+            "Italiano": "it",
+            "Português": "pt",
+            "Polski": "pl",
+            "Türkçe": "tr",
+            "Русский": "ru",
+            "Nederlands": "nl",
+            "Čeština": "cs",
+            "العربية": "ar",
+            "中文": "zh",
+            "日本語": "ja",
+            "Magyar": "hu",
+            "한국어": "ko",
+            "हिन्दी": "hi"
+        };
+
         function changeLanguage(lang) {
             const trans = translations[lang];
             document.getElementById('nav-usage').innerText = trans.nav_usage;
@@ -539,14 +558,10 @@
             document.getElementById('gemovie-h2').innerText = trans.gemovie_h2;
             document.getElementById('download-jp-h3').innerText = trans.download_jp_h3;
             document.getElementById('download-multi-h3').innerText = trans.download_multi_h3;
-            document.getElementById('button-win-jp').innerText = trans.button_win;
-            document.getElementById('subtext-win-jp').innerText = trans.subtext_win;
-            document.getElementById('button-mac-jp').innerText = trans.button_mac;
-            document.getElementById('subtext-mac-jp').innerText = trans.subtext_mac;
-            document.getElementById('button-win-multi').innerText = trans.button_win;
-            document.getElementById('subtext-win-multi').innerText = trans.subtext_win;
-            document.getElementById('button-mac-multi').innerText = trans.button_mac;
-            document.getElementById('subtext-mac-multi').innerText = trans.subtext_mac;
+            document.getElementById('button-win-jp').innerHTML = trans.button_win + '<span class="subtext" id="subtext-win-jp">' + trans.subtext_win + '</span>';
+            document.getElementById('button-mac-jp').innerHTML = trans.button_mac + '<span class="subtext" id="subtext-mac-jp">' + trans.subtext_mac + '</span>';
+            document.getElementById('button-win-multi').innerHTML = trans.button_win + '<span class="subtext" id="subtext-win-multi">' + trans.subtext_win + '</span>';
+            document.getElementById('button-mac-multi').innerHTML = trans.button_mac + '<span class="subtext" id="subtext-mac-multi">' + trans.subtext_mac + '</span>';
             document.getElementById('usage-h1').innerText = trans.usage_h1;
             document.getElementById('usage-jp-win-h2').innerText = trans.usage_jp_win_h2;
             document.getElementById('usage-jp-mac-h2').innerText = trans.usage_jp_mac_h2;
@@ -557,14 +572,18 @@
             document.getElementById('faq-h1').innerText = trans.faq_h1;
             document.getElementById('faq-p').innerText = trans.faq_p;
 
+            const langCode = langCodes[lang] || "en";
+            const formId = "1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw";
+            const baseSrc = `https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true&hl=${langCode}`;
+            document.getElementById('contact-iframe').src = baseSrc;
+
             // Handle RTL for Arabic
             if (lang === "العربية") {
                 document.body.dir = "rtl";
-                document.documentElement.lang = "ar";
             } else {
                 document.body.dir = "ltr";
-                document.documentElement.lang = lang.toLowerCase().substring(0,2);
             }
+            document.documentElement.lang = langCode;
         }
     </script>
 </head>
@@ -597,7 +616,6 @@
 
 <div class="container">
     <input type="radio" id="tab-gemovie" name="tab" checked>
-    <input type="radio" id="tab-download" name="tab">
     <input type="radio" id="tab-usage" name="tab">
     <input type="radio" id="tab-faq" name="tab">
     <input type="radio" id="tab-contact" name="tab">
@@ -643,7 +661,7 @@
         <p id="faq-p">TBD</p>
     </div>
     <div id="contact" class="tab-content">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true" 
+        <iframe id="contact-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true&hl=ja" 
                 width="100%" 
                 style="max-width: 640px; height: 100vh; margin: 0 auto; display: block;" 
                 frameborder="0" 
