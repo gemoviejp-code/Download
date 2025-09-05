@@ -111,14 +111,488 @@
             margin-top: 5px;
             text-align: center;
         }
+        #language-select {
+            margin: 10px auto;
+            display: block;
+        }
     </style>
+    <script>
+        const translations = {
+            "English": {
+                nav_usage: "How to Use",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                gemovie_p1: "An innovative tool that instantly turns your story into a video using AI",
+                gemovie_p2: "With Gemovie, you can easily create free narration-accompanied videos based on still images using the power of AI.",
+                gemovie_p3: "*A Google account is required for creation.",
+                gemovie_h2: "Download",
+                download_jp_h3: "Japanese version (VOICEVOX voice)",
+                download_multi_h3: "Multilingual version (coqui/XTTS-v2 voice) *Commercial use not allowed",
+                button_win: "Windows installer",
+                subtext_win: "(Windows 10 and later only)",
+                button_mac: "MacOS installer",
+                subtext_mac: "(Apple Silicon only)",
+                usage_h1: "How to Use",
+                usage_jp_win_h2: "Japanese version Windows installation procedure",
+                usage_jp_mac_h2: "Japanese version MacOS installation procedure",
+                usage_jp_use_h2: "Japanese version How to Use",
+                usage_multi_win_h2: "Multilingual version Windows installation procedure",
+                usage_multi_mac_h2: "Multilingual version MacOS installation procedure",
+                usage_multi_use_h2: "Multilingual version How to Use",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Español": {
+                nav_usage: "Cómo usar",
+                nav_faq: "FAQ",
+                nav_contact: "Contacto",
+                gemovie_p1: "Una herramienta innovadora que convierte tu historia en video instantáneamente usando IA",
+                gemovie_p2: "Con Gemovie, puedes crear fácilmente videos gratuitos con narración basados en imágenes fijas usando el poder de la IA.",
+                gemovie_p3: "*Se requiere una cuenta de Google para la creación.",
+                gemovie_h2: "Descargar",
+                download_jp_h3: "Versión japonesa (voz VOICEVOX)",
+                download_multi_h3: "Versión multilingüe (voz coqui/XTTS-v2) *Uso comercial no permitido",
+                button_win: "Instalador para Windows",
+                subtext_win: "(Solo Windows 10 y posteriores)",
+                button_mac: "Instalador para MacOS",
+                subtext_mac: "(Solo Apple Silicon)",
+                usage_h1: "Cómo usar",
+                usage_jp_win_h2: "Procedimiento de instalación de la versión japonesa para Windows",
+                usage_jp_mac_h2: "Procedimiento de instalación de la versión japonesa para MacOS",
+                usage_jp_use_h2: "Cómo usar la versión japonesa",
+                usage_multi_win_h2: "Procedimiento de instalación de la versión multilingüe para Windows",
+                usage_multi_mac_h2: "Procedimiento de instalación de la versión multilingüe para MacOS",
+                usage_multi_use_h2: "Cómo usar la versión multilingüe",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Français": {
+                nav_usage: "Comment utiliser",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                gemovie_p1: "Un outil innovant qui transforme instantanément votre histoire en vidéo avec l'IA",
+                gemovie_p2: "Avec Gemovie, vous pouvez facilement créer des vidéos gratuites avec narration basées sur des images fixes grâce à la puissance de l'IA.",
+                gemovie_p3: "*Un compte Google est requis pour la création.",
+                gemovie_h2: "Télécharger",
+                download_jp_h3: "Version japonaise (voix VOICEVOX)",
+                download_multi_h3: "Version multilingue (voix coqui/XTTS-v2) *Utilisation commerciale interdite",
+                button_win: "Installateur pour Windows",
+                subtext_win: "(Windows 10 et versions ultérieures seulement)",
+                button_mac: "Installateur pour MacOS",
+                subtext_mac: "(Apple Silicon seulement)",
+                usage_h1: "Comment utiliser",
+                usage_jp_win_h2: "Procédure d'installation de la version japonaise pour Windows",
+                usage_jp_mac_h2: "Procédure d'installation de la version japonaise pour MacOS",
+                usage_jp_use_h2: "Comment utiliser la version japonaise",
+                usage_multi_win_h2: "Procédure d'installation de la version multilingue pour Windows",
+                usage_multi_mac_h2: "Procédure d'installation de la version multilingue pour MacOS",
+                usage_multi_use_h2: "Comment utiliser la version multilingue",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Deutsch": {
+                nav_usage: "Verwendung",
+                nav_faq: "FAQ",
+                nav_contact: "Kontakt",
+                gemovie_p1: "Ein innovatives Tool, das Ihre Geschichte mithilfe von KI sofort in ein Video umwandelt",
+                gemovie_p2: "Mit Gemovie können Sie mit der Kraft der KI einfach kostenlose Videos mit Erzählung auf Basis von Standbildern erstellen.",
+                gemovie_p3: "*Für die Erstellung ist ein Google-Konto erforderlich.",
+                gemovie_h2: "Download",
+                download_jp_h3: "Japanische Version (VOICEVOX-Stimme)",
+                download_multi_h3: "Mehrsprachige Version (coqui/XTTS-v2-Stimme) *Kommerzielle Nutzung nicht erlaubt",
+                button_win: "Installer für Windows",
+                subtext_win: "(Nur Windows 10 und höher)",
+                button_mac: "Installer für MacOS",
+                subtext_mac: "(Nur Apple Silicon)",
+                usage_h1: "Verwendung",
+                usage_jp_win_h2: "Installationsverfahren der japanischen Version für Windows",
+                usage_jp_mac_h2: "Installationsverfahren der japanischen Version für MacOS",
+                usage_jp_use_h2: "Verwendung der japanischen Version",
+                usage_multi_win_h2: "Installationsverfahren der mehrsprachigen Version für Windows",
+                usage_multi_mac_h2: "Installationsverfahren der mehrsprachigen Version für MacOS",
+                usage_multi_use_h2: "Verwendung der mehrsprachigen Version",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Italiano": {
+                nav_usage: "Come usare",
+                nav_faq: "FAQ",
+                nav_contact: "Contatto",
+                gemovie_p1: "Uno strumento innovativo che trasforma la tua storia in video all'istante usando l'IA",
+                gemovie_p2: "Con Gemovie, puoi creare facilmente video gratuiti con narrazione basati su immagini fisse usando il potere dell'IA.",
+                gemovie_p3: "*Per la creazione è richiesto un account Google.",
+                gemovie_h2: "Download",
+                download_jp_h3: "Versione giapponese (voce VOICEVOX)",
+                download_multi_h3: "Versione multilingue (voce coqui/XTTS-v2) *Uso commerciale non permesso",
+                button_win: "Installer per Windows",
+                subtext_win: "(Solo Windows 10 e successivi)",
+                button_mac: "Installer per MacOS",
+                subtext_mac: "(Solo Apple Silicon)",
+                usage_h1: "Come usare",
+                usage_jp_win_h2: "Procedura di installazione della versione giapponese per Windows",
+                usage_jp_mac_h2: "Procedura di installazione della versione giapponese per MacOS",
+                usage_jp_use_h2: "Come usare la versione giapponese",
+                usage_multi_win_h2: "Procedura di installazione della versione multilingue per Windows",
+                usage_multi_mac_h2: "Procedura di installazione della versione multilingue per MacOS",
+                usage_multi_use_h2: "Come usare la versione multilingue",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Português": {
+                nav_usage: "Como usar",
+                nav_faq: "FAQ",
+                nav_contact: "Contato",
+                gemovie_p1: "Uma ferramenta inovadora que transforma sua história em vídeo instantaneamente usando IA",
+                gemovie_p2: "Com Gemovie, você pode criar facilmente vídeos gratuitos com narração baseados em imagens estáticas usando o poder da IA.",
+                gemovie_p3: "*Uma conta do Google é necessária para a criação.",
+                gemovie_h2: "Download",
+                download_jp_h3: "Versão japonesa (voz VOICEVOX)",
+                download_multi_h3: "Versão multilingue (voz coqui/XTTS-v2) *Uso comercial não permitido",
+                button_win: "Instalador para Windows",
+                subtext_win: "(Apenas Windows 10 e posteriores)",
+                button_mac: "Instalador para MacOS",
+                subtext_mac: "(Apenas Apple Silicon)",
+                usage_h1: "Como usar",
+                usage_jp_win_h2: "Procedimento de instalação da versão japonesa para Windows",
+                usage_jp_mac_h2: "Procedimento de instalação da versão japonesa para MacOS",
+                usage_jp_use_h2: "Como usar a versão japonesa",
+                usage_multi_win_h2: "Procedimento de instalação da versão multilingue para Windows",
+                usage_multi_mac_h2: "Procedimento de instalação da versão multilingue para MacOS",
+                usage_multi_use_h2: "Como usar a versão multilingue",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Polski": {
+                nav_usage: "Jak używać",
+                nav_faq: "FAQ",
+                nav_contact: "Kontakt",
+                gemovie_p1: "Innowacyjne narzędzie, które natychmiast przekształca Twoją historię w wideo za pomocą AI",
+                gemovie_p2: "Z Gemovie możesz łatwo tworzyć darmowe filmy z narracją na podstawie statycznych obrazów przy użyciu mocy AI.",
+                gemovie_p3: "*Do tworzenia wymagane jest konto Google.",
+                gemovie_h2: "Pobierz",
+                download_jp_h3: "Wersja japońska (głos VOICEVOX)",
+                download_multi_h3: "Wersja wielojęzyczna (głos coqui/XTTS-v2) *Użycie komercyjne zabronione",
+                button_win: "Instalator dla Windows",
+                subtext_win: "(Tylko Windows 10 i nowsze)",
+                button_mac: "Instalator dla MacOS",
+                subtext_mac: "(Tylko Apple Silicon)",
+                usage_h1: "Jak używać",
+                usage_jp_win_h2: "Procedura instalacji wersji japońskiej dla Windows",
+                usage_jp_mac_h2: "Procedura instalacji wersji japońskiej dla MacOS",
+                usage_jp_use_h2: "Jak używać wersji japońskiej",
+                usage_multi_win_h2: "Procedura instalacji wersji wielojęzycznej dla Windows",
+                usage_multi_mac_h2: "Procedura instalacji wersji wielojęzycznej dla MacOS",
+                usage_multi_use_h2: "Jak używać wersji wielojęzycznej",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Türkçe": {
+                nav_usage: "Nasıl kullanılır",
+                nav_faq: "SSS",
+                nav_contact: "İletişim",
+                gemovie_p1: "AI ile hikayenizi anında videoya dönüştüren yenilikçi araç",
+                gemovie_p2: "Gemovie ile AI'nin gücüyle kolayca statik görüntü tabanlı anlatımlı videoları ücretsiz oluşturabilirsiniz.",
+                gemovie_p3: "*Oluşturma için Google hesabı gereklidir.",
+                gemovie_h2: "Indir",
+                download_jp_h3: "Japonca sürüm (VOICEVOX ses)",
+                download_multi_h3: "Çok dilli sürüm (coqui/XTTS-v2 ses) *Ticari kullanım yasaktır",
+                button_win: "Windows için kurulum programı",
+                subtext_win: "(Yalnızca Windows 10 ve üzeri)",
+                button_mac: "MacOS için kurulum programı",
+                subtext_mac: "(Yalnızca Apple Silicon)",
+                usage_h1: "Nasıl kullanılır",
+                usage_jp_win_h2: "Japonca sürüm Windows kurulum prosedürü",
+                usage_jp_mac_h2: "Japonca sürüm MacOS kurulum prosedürü",
+                usage_jp_use_h2: "Japonca sürüm Nasıl kullanılır",
+                usage_multi_win_h2: "Çok dilli sürüm Windows kurulum prosedürü",
+                usage_multi_mac_h2: "Çok dilli sürüm MacOS kurulum prosedürü",
+                usage_multi_use_h2: "Çok dilli sürüm Nasıl kullanılır",
+                faq_h1: "SSS",
+                faq_p: "TBD"
+            },
+            "Русский": {
+                nav_usage: "Как использовать",
+                nav_faq: "FAQ",
+                nav_contact: "Контакт",
+                gemovie_p1: "Инновационный инструмент, который мгновенно превращает вашу историю в видео с помощью ИИ",
+                gemovie_p2: "С Gemovie вы можете легко создавать бесплатные видео с narration на основе статических изображений с помощью силы ИИ.",
+                gemovie_p3: "*Для создания требуется аккаунт Google.",
+                gemovie_h2: "Скачать",
+                download_jp_h3: "Японская версия (голос VOICEVOX)",
+                download_multi_h3: "Многоязычная версия (голос coqui/XTTS-v2) *Коммерческое использование запрещено",
+                button_win: "Установщик для Windows",
+                subtext_win: "(Только Windows 10 и выше)",
+                button_mac: "Установщик для MacOS",
+                subtext_mac: "(Только Apple Silicon)",
+                usage_h1: "Как использовать",
+                usage_jp_win_h2: "Процедура установки японской версии для Windows",
+                usage_jp_mac_h2: "Процедура установки японской версии для MacOS",
+                usage_jp_use_h2: "Как использовать японскую версию",
+                usage_multi_win_h2: "Процедура установки многоязычной версии для Windows",
+                usage_multi_mac_h2: "Процедура установки многоязычной версии для MacOS",
+                usage_multi_use_h2: "Как использовать многоязычную версию",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Nederlands": {
+                nav_usage: "Hoe te gebruiken",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                gemovie_p1: "Een innovatief hulpmiddel dat je verhaal onmiddellijk in video omzet met AI",
+                gemovie_p2: "Met Gemovie kun je eenvoudig gratis video's met narratie op basis van stilstaande beelden maken met de kracht van AI.",
+                gemovie_p3: "*Een Google-account is vereist voor het maken.",
+                gemovie_h2: "Download",
+                download_jp_h3: "Japanse versie (VOICEVOX stem)",
+                download_multi_h3: "Meertalige versie (coqui/XTTS-v2 stem) *Commercieel gebruik niet toegestaan",
+                button_win: "Installer voor Windows",
+                subtext_win: "(Alleen Windows 10 en later)",
+                button_mac: "Installer voor MacOS",
+                subtext_mac: "(Alleen Apple Silicon)",
+                usage_h1: "Hoe te gebruiken",
+                usage_jp_win_h2: "Installatieprocedure Japanse versie voor Windows",
+                usage_jp_mac_h2: "Installatieprocedure Japanse versie voor MacOS",
+                usage_jp_use_h2: "Hoe te gebruiken Japanse versie",
+                usage_multi_win_h2: "Installatieprocedure meertalige versie voor Windows",
+                usage_multi_mac_h2: "Installatieprocedure meertalige versie voor MacOS",
+                usage_multi_use_h2: "Hoe te gebruiken meertalige versie",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Čeština": {
+                nav_usage: "Jak používat",
+                nav_faq: "FAQ",
+                nav_contact: "Kontakt",
+                gemovie_p1: "Inovativní nástroj, který okamžitě přemění váš příběh na video pomocí AI",
+                gemovie_p2: "S Gemovie můžete snadno vytvářet zdarma videa s vyprávěním na základě statických obrázků pomocí síly AI.",
+                gemovie_p3: "*Pro vytvoření je vyžadován účet Google.",
+                gemovie_h2: "Stáhnout",
+                download_jp_h3: "Japonská verze (hlas VOICEVOX)",
+                download_multi_h3: "Vícejazyčná verze (hlas coqui/XTTS-v2) *Komerční použití zakázáno",
+                button_win: "Instalační program pro Windows",
+                subtext_win: "(Pouze Windows 10 a novější)",
+                button_mac: "Instalační program pro MacOS",
+                subtext_mac: "(Pouze Apple Silicon)",
+                usage_h1: "Jak používat",
+                usage_jp_win_h2: "Postup instalace japonské verze pro Windows",
+                usage_jp_mac_h2: "Postup instalace japonské verze pro MacOS",
+                usage_jp_use_h2: "Jak používat japonskou verzi",
+                usage_multi_win_h2: "Postup instalace vícejazyčné verze pro Windows",
+                usage_multi_mac_h2: "Postup instalace vícejazyčné verze pro MacOS",
+                usage_multi_use_h2: "Jak používat vícejazyčnou verzi",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "العربية": {
+                nav_usage: "كيفية الاستخدام",
+                nav_faq: "الأسئلة الشائعة",
+                nav_contact: "الاتصال",
+                gemovie_p1: "أداة مبتكرة تحول قصتك إلى فيديو فورًا باستخدام الذكاء الاصطناعي",
+                gemovie_p2: "باستخدام Gemovie، يمكنك إنشاء فيديوهات مجانية مع رواية بناءً على صور ثابتة بسهولة باستخدام قوة الذكاء الاصطناعي.",
+                gemovie_p3: "*حساب Google مطلوب للإنشاء.",
+                gemovie_h2: "تنزيل",
+                download_jp_h3: "الإصدار الياباني (صوت VOICEVOX)",
+                download_multi_h3: "الإصدار متعدد اللغات (صوت coqui/XTTS-v2) *الاستخدام التجاري غير مسموح",
+                button_win: "مثبت لـ Windows",
+                subtext_win: "(Windows 10 وما بعده فقط)",
+                button_mac: "مثبت لـ MacOS",
+                subtext_mac: "(Apple Silicon فقط)",
+                usage_h1: "كيفية الاستخدام",
+                usage_jp_win_h2: "إجراء التثبيت للإصدار الياباني لـ Windows",
+                usage_jp_mac_h2: "إجراء التثبيت للإصدار الياباني لـ MacOS",
+                usage_jp_use_h2: "كيفية الاستخدام للإصدار الياباني",
+                usage_multi_win_h2: "إجراء التثبيت للإصدار متعدد اللغات لـ Windows",
+                usage_multi_mac_h2: "إجراء التثبيت للإصدار متعدد اللغات لـ MacOS",
+                usage_multi_use_h2: "كيفية الاستخدام للإصدار متعدد اللغات",
+                faq_h1: "الأسئلة الشائعة",
+                faq_p: "TBD"
+            },
+            "中文": {
+                nav_usage: "使用方法",
+                nav_faq: "FAQ",
+                nav_contact: "联系我们",
+                gemovie_p1: "AI 将您的故事即时转化为视频的创新工具",
+                gemovie_p2: "使用 Gemovie，您可以使用 AI 的力量轻松免费创建基于静态图像的旁白视频。",
+                gemovie_p3: "*创建需要 Google 帐户。",
+                gemovie_h2: "下载",
+                download_jp_h3: "日语版 (VOICEVOX 语音)",
+                download_multi_h3: "多语言版 (coqui/XTTS-v2 语音)*商用不可",
+                button_win: "Windows 安装程序",
+                subtext_win: "(仅 Windows 10 及以上版本)",
+                button_mac: "MacOS 安装程序",
+                subtext_mac: "(仅 Apple Silicon)",
+                usage_h1: "使用方法",
+                usage_jp_win_h2: "日语版 Windows 安装程序",
+                usage_jp_mac_h2: "日语版 MacOS 安装程序",
+                usage_jp_use_h2: "日语版 使用方法",
+                usage_multi_win_h2: "多语言版 Windows 安装程序",
+                usage_multi_mac_h2: "多语言版 MacOS 安装程序",
+                usage_multi_use_h2: "多语言版 使用方法",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "日本語": {
+                nav_usage: "使い方",
+                nav_faq: "FAQ",
+                nav_contact: "お問い合わせ",
+                gemovie_p1: "AIがあなたのストーリーを瞬時に動画化する革新的ツール",
+                gemovie_p2: "Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。",
+                gemovie_p3: "※作成にはGoogleアカウントが必要です。",
+                gemovie_h2: "ダウンロード",
+                download_jp_h3: "日本語版 (VOICEVOX 音声)",
+                download_multi_h3: "多言語版 (coqui/XTTS-v2 音声)※商用利用不可",
+                button_win: "Windows用インストーラー",
+                subtext_win: "(Windows10以降のみ)",
+                button_mac: "MacOS用インストーラー",
+                subtext_mac: "(Apple Siliconのみ)",
+                usage_h1: "使い方",
+                usage_jp_win_h2: "日本語版 Windowsインストール手順",
+                usage_jp_mac_h2: "日本語版 MacOSインストール手順",
+                usage_jp_use_h2: "日本語版 使い方",
+                usage_multi_win_h2: "多言語版 Windowsインストール手順",
+                usage_multi_mac_h2: "多言語版 MacOSインストール手順",
+                usage_multi_use_h2: "多言語版 使い方",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "Magyar": {
+                nav_usage: "Használata",
+                nav_faq: "GYIK",
+                nav_contact: "Kapcsolat",
+                gemovie_p1: "Innovatív eszköz, amely azonnal videóvá alakítja a történetedet AI segítségével",
+                gemovie_p2: "A Gemovie-val az AI erejével könnyen ingyenesen készíthetsz narrációval ellátott videókat statikus képek alapján.",
+                gemovie_p3: "*A létrehozáshoz Google-fiók szükséges.",
+                gemovie_h2: "Letöltés",
+                download_jp_h3: "Japán verzió (VOICEVOX hang)",
+                download_multi_h3: "Többnyelvű verzió (coqui/XTTS-v2 hang) *Kereskedelmi használat nem megengedett",
+                button_win: "Windows telepítő",
+                subtext_win: "(Csak Windows 10 és újabb)",
+                button_mac: "MacOS telepítő",
+                subtext_mac: "(Csak Apple Silicon)",
+                usage_h1: "Használata",
+                usage_jp_win_h2: "Japán verzió Windows telepítési eljárása",
+                usage_jp_mac_h2: "Japán verzió MacOS telepítési eljárása",
+                usage_jp_use_h2: "Japán verzió használata",
+                usage_multi_win_h2: "Többnyelvű verzió Windows telepítési eljárása",
+                usage_multi_mac_h2: "Többnyelvű verzió MacOS telepítési eljárása",
+                usage_multi_use_h2: "Többnyelvű verzió használata",
+                faq_h1: "GYIK",
+                faq_p: "TBD"
+            },
+            "한국어": {
+                nav_usage: "사용법",
+                nav_faq: "FAQ",
+                nav_contact: "문의",
+                gemovie_p1: "AI가 당신의 이야기를 순식간에 동영상으로 만드는 혁신적인 도구",
+                gemovie_p2: "Gemovie를 사용하면 AI의 힘으로 쉽게 정지 이미지 기반의 나레이션付き 동영상을 무료로 생성할 수 있습니다.",
+                gemovie_p3: "*생성에는 Google 계정이 필요합니다.",
+                gemovie_h2: "다운로드",
+                download_jp_h3: "일본어 버전 (VOICEVOX 음성)",
+                download_multi_h3: "다국어 버전 (coqui/XTTS-v2 음성)*상업적 사용 불가",
+                button_win: "Windows용 설치 프로그램",
+                subtext_win: "(Windows 10 이후만)",
+                button_mac: "MacOS용 설치 프로그램",
+                subtext_mac: "(Apple Silicon만)",
+                usage_h1: "사용법",
+                usage_jp_win_h2: "일본어 버전 Windows 설치 절차",
+                usage_jp_mac_h2: "일본어 버전 MacOS 설치 절차",
+                usage_jp_use_h2: "일본어 버전 사용법",
+                usage_multi_win_h2: "다국어 버전 Windows 설치 절차",
+                usage_multi_mac_h2: "다국어 버전 MacOS 설치 절차",
+                usage_multi_use_h2: "다국어 버전 사용법",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            },
+            "हिन्दी": {
+                nav_usage: "उपयोग कैसे करें",
+                nav_faq: "FAQ",
+                nav_contact: "संपर्क करें",
+                gemovie_p1: "एक नवीनतम उपकरण जो AI का उपयोग करके आपकी कहानी को तुरंत वीडियो में बदल देता है",
+                gemovie_p2: "Gemovie के साथ, आप AI की शक्ति से आसानी से स्थिर छवियों पर आधारित नैरेशन वाले वीडियो निःशुल्क बना सकते हैं.",
+                gemovie_p3: "*निर्माण के लिए Google खाता आवश्यक है.",
+                gemovie_h2: "डाउनलोड",
+                download_jp_h3: "जापानी संस्करण (VOICEVOX आवाज)",
+                download_multi_h3: "बहुभाषी संस्करण (coqui/XTTS-v2 आवाज) *व्यावसायिक उपयोग निषिद्ध",
+                button_win: "Windows के लिए इंस्टॉलर",
+                subtext_win: "(केवल Windows 10 और बाद के संस्करण)",
+                button_mac: "MacOS के लिए इंस्टॉलर",
+                subtext_mac: "(केवल Apple Silicon)",
+                usage_h1: "उपयोग कैसे करें",
+                usage_jp_win_h2: "जापानी संस्करण Windows इंस्टॉलेशन प्रक्रिया",
+                usage_jp_mac_h2: "जापानी संस्करण MacOS इंस्टॉलेशन प्रक्रिया",
+                usage_jp_use_h2: "जापानी संस्करण उपयोग कैसे करें",
+                usage_multi_win_h2: "बहुभाषी संस्करण Windows इंस्टॉलेशन प्रक्रिया",
+                usage_multi_mac_h2: "बहुभाषी संस्करण MacOS इंस्टॉलेशन प्रक्रिया",
+                usage_multi_use_h2: "बहुभाषी संस्करण उपयोग कैसे करें",
+                faq_h1: "FAQ",
+                faq_p: "TBD"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const trans = translations[lang];
+            document.getElementById('nav-usage').innerText = trans.nav_usage;
+            document.getElementById('nav-faq').innerText = trans.nav_faq;
+            document.getElementById('nav-contact').innerText = trans.nav_contact;
+            document.getElementById('gemovie-p1').innerText = trans.gemovie_p1;
+            document.getElementById('gemovie-p2').innerText = trans.gemovie_p2;
+            document.getElementById('gemovie-p3').innerText = trans.gemovie_p3;
+            document.getElementById('gemovie-h2').innerText = trans.gemovie_h2;
+            document.getElementById('download-jp-h3').innerText = trans.download_jp_h3;
+            document.getElementById('download-multi-h3').innerText = trans.download_multi_h3;
+            document.getElementById('button-win-jp').innerText = trans.button_win;
+            document.getElementById('subtext-win-jp').innerText = trans.subtext_win;
+            document.getElementById('button-mac-jp').innerText = trans.button_mac;
+            document.getElementById('subtext-mac-jp').innerText = trans.subtext_mac;
+            document.getElementById('button-win-multi').innerText = trans.button_win;
+            document.getElementById('subtext-win-multi').innerText = trans.subtext_win;
+            document.getElementById('button-mac-multi').innerText = trans.button_mac;
+            document.getElementById('subtext-mac-multi').innerText = trans.subtext_mac;
+            document.getElementById('usage-h1').innerText = trans.usage_h1;
+            document.getElementById('usage-jp-win-h2').innerText = trans.usage_jp_win_h2;
+            document.getElementById('usage-jp-mac-h2').innerText = trans.usage_jp_mac_h2;
+            document.getElementById('usage-jp-use-h2').innerText = trans.usage_jp_use_h2;
+            document.getElementById('usage-multi-win-h2').innerText = trans.usage_multi_win_h2;
+            document.getElementById('usage-multi-mac-h2').innerText = trans.usage_multi_mac_h2;
+            document.getElementById('usage-multi-use-h2').innerText = trans.usage_multi_use_h2;
+            document.getElementById('faq-h1').innerText = trans.faq_h1;
+            document.getElementById('faq-p').innerText = trans.faq_p;
+
+            // Handle RTL for Arabic
+            if (lang === "العربية") {
+                document.body.dir = "rtl";
+                document.documentElement.lang = "ar";
+            } else {
+                document.body.dir = "ltr";
+                document.documentElement.lang = lang.toLowerCase().substring(0,2);
+            }
+        }
+    </script>
 </head>
 <body>
+    <select id="language-select" onchange="changeLanguage(this.value)">
+        <option value="English">English</option>
+        <option value="Español">Español</option>
+        <option value="Français">Français</option>
+        <option value="Deutsch">Deutsch</option>
+        <option value="Italiano">Italiano</option>
+        <option value="Português">Português</option>
+        <option value="Polski">Polski</option>
+        <option value="Türkçe">Türkçe</option>
+        <option value="Русский">Русский</option>
+        <option value="Nederlands">Nederlands</option>
+        <option value="Čeština">Čeština</option>
+        <option value="العربية">العربية</option>
+        <option value="中文">中文</option>
+        <option value="日本語" selected>日本語</option>
+        <option value="Magyar">Magyar</option>
+        <option value="한국어">한국어</option>
+        <option value="हिन्दी">हिन्दी</option>
+    </select>
     <nav>
         <label for="tab-gemovie">Gemovie</label>
-        <label for="tab-usage">使い方</label>
-        <label for="tab-faq">FAQ</label>
-        <label for="tab-contact">お問い合わせ</label>
+        <label for="tab-usage" id="nav-usage">使い方</label>
+        <label for="tab-faq" id="nav-faq">FAQ</label>
+        <label for="tab-contact" id="nav-contact">お問い合わせ</label>
     </nav>
 
 <div class="container">
@@ -130,43 +604,43 @@
 
     <div id="gemovie" class="tab-content">
         <h1>Gemovie</h1>
-        <p>AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
-        <p>Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
-        <p>※作成にはGoogleアカウントが必要です。</p>
-        <h2>ダウンロード</h2>
+        <p id="gemovie-p1">AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
+        <p id="gemovie-p2">Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
+        <p id="gemovie-p3">※作成にはGoogleアカウントが必要です。</p>
+        <h2 id="gemovie-h2">ダウンロード</h2>
         <div class="download-section">
-            <h3>日本語版 (VOICEVOX 音声)</h3>
+            <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
             <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+                <a href="#" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
+                <a href="#" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
             </div>
         </div>
         <div class="download-section">
-            <h3>多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
+            <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
             <div class="download-links">
-                <a href="#" class="button">Windows用インストーラー<span class="subtext">(Windows10以降のみ)</span></a>
-                <a href="#" class="button">MacOS用インストーラー<span class="subtext">(Apple Siliconのみ)</span></a>
+                <a href="#" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
+                <a href="#" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
             </div>
         </div>
     </div>
     <div id="usage" class="tab-content">
-        <h1>使い方</h1>
-        <h2>日本語版 Windowsインストール手順</h2>
+        <h1 id="usage-h1">使い方</h1>
+        <h2 id="usage-jp-win-h2">日本語版 Windowsインストール手順</h2>
         <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
-        <h2>日本語版 MacOSインストール手順</h2>
+        <h2 id="usage-jp-mac-h2">日本語版 MacOSインストール手順</h2>
         <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-        <h2>日本語版 使い方</h2>
+        <h2 id="usage-jp-use-h2">日本語版 使い方</h2>
         <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
-        <h2>多言語版 Windowsインストール手順</h2>
+        <h2 id="usage-multi-win-h2">多言語版 Windowsインストール手順</h2>
         <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
-        <h2>多言語版 MacOSインストール手順</h2>
+        <h2 id="usage-multi-mac-h2">多言語版 MacOSインストール手順</h2>
         <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-        <h2>多言語版 使い方</h2>
+        <h2 id="usage-multi-use-h2">多言語版 使い方</h2>
         <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
     </div>
     <div id="faq" class="tab-content">
-        <h1>FAQ</h1>
-        <p>TBD</p>
+        <h1 id="faq-h1">FAQ</h1>
+        <p id="faq-p">TBD</p>
     </div>
     <div id="contact" class="tab-content">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true" 
@@ -177,5 +651,10 @@
                 marginwidth="0">読み込んでいます…</iframe>
     </div>
 </div>
+<script>
+    window.onload = function() {
+        changeLanguage('日本語');
+    };
+</script>
 </body>
 </html>
