@@ -23,8 +23,7 @@
             background-color: #102054; /* 紺 */
             padding: 10px;
             text-align: center;
-            width: 100%; /* 横幅を画面いっぱいに */
-        }
+            width: 100%; /* 横幅application/x-www-form-urlencoded; charset=UTF-8">
         nav label {
             color: #23bade;
             padding: 10px 20px;
@@ -113,6 +112,12 @@
         #language-select {
             margin: 10px auto;
             display: block;
+        }
+        #download-jp-desc, #download-multi-desc {
+            text-align: left; /* 箇条書きを左寄せ */
+            font-size: 0.9em; /* フォントサイズを小さく */
+            margin: 0 auto 10px;
+            max-width: 800px; /* 中央揃えを維持しつつ幅を制限 */
         }
     </style>
     <script>
@@ -668,8 +673,12 @@
             // Handle RTL for Arabic
             if (lang === "العربية") {
                 document.body.dir = "rtl";
+                document.getElementById('download-jp-desc').style.textAlign = "right";
+                document.getElementById('download-multi-desc').style.textAlign = "right";
             } else {
                 document.body.dir = "ltr";
+                document.getElementById('download-jp-desc').style.textAlign = "left";
+                document.getElementById('download-multi-desc').style.textAlign = "left";
             }
             document.documentElement.lang = langCode;
         }
@@ -697,15 +706,22 @@
         <h2 id="gemovie-h2">ダウンロード</h2>
         <div class="download-section">
             <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
-            <ul id="download-jp-desc"></ul>
+            <ul id="download-jp-desc">
+                <li>商用利用可</li>
+                <li>30種類以上の音声モデルから音声生成可</li>
+            </ul>
             <div class="download-links">
                 <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/GemovieInstaller_ja_0100.exe" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
                 <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/Gemovie_ja_0100.pkg" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
             </div>
         </div>
         <div class="download-section">
-            <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)※商用利用不可</h3>
-            <ul id="download-multi-desc"></ul>
+            <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)</h3>
+            <ul id="download-multi-desc">
+                <li>商用利用不可</li>
+                <li>クローン音声生成可</li>
+                <li>英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応</li>
+            </ul>
             <div class="download-links">
                 <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/GemovieInstaller_mul_0100.exe" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
                 <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/Gemovie_mul_0100.pkg" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
