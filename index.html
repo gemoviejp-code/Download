@@ -23,7 +23,8 @@
             background-color: #102054; /* 紺 */
             padding: 10px;
             text-align: center;
-            width: 100%; /* 横幅application/x-www-form-urlencoded; charset=UTF-8">
+            width: 100%; /* 横幅を画面いっぱいに */
+        }
         nav label {
             color: #23bade;
             padding: 10px 20px;
@@ -86,38 +87,78 @@
         }
         #gemovie .download-section {
             display: flex;
-            flex-direction: column; /* 縦に配置して中央揃えしやすく */
-            align-items: center; /* 縦方向の中央揃え */
+            flex-direction: row; /* 横に配置 */
+            align-items: flex-start; /* 上揃え */
+            justify-content: space-between; /* 左と右を分ける */
             margin-bottom: 50px;
+            gap: 20px; /* 左側と右側の間隔 */
         }
-        #gemovie .download-section h3 {
+        #gemovie .download-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 左寄せ */
+        }
+        #gemovie .download-left h3 {
             margin: 0 0 10px; /* 下に余白を追加 */
             width: auto; /* 幅を自動に */
-            text-align: center;
+            text-align: left; /* 左寄せ */
         }
-        #gemovie .download-links {
+        #gemovie .download-left .download-links {
             display: flex;
-            justify-content: center; /* ボタンを中央揃え */
-            gap: 15px;
+            flex-direction: column; /* ボタンを縦に配置 */
+            align-items: flex-start; /* 左寄せ */
+            gap: 10px;
         }
-        #gemovie .download-links a.button {
+        #gemovie .download-left a.button {
             margin: 0;
+            width: auto;
         }
-        #gemovie .download-links .subtext {
+        #gemovie .download-left .subtext {
             display: block;
             font-size: 0.8em;
             margin-top: 5px;
-            text-align: center;
+            text-align: left; /* 左寄せ */
+        }
+        #gemovie .download-right {
+            flex: 1;
+            text-align: left; /* 右側の箇条書きを左寄せ（配置の右側だがテキストは左） */
+        }
+        #download-jp-desc, #download-multi-desc {
+            font-size: 0.9em; /* フォントサイズを小さく */
+            margin: 0;
+            padding-left: 20px; /* 箇条書きのインデント */
+        }
+        #download-jp-desc li, #download-multi-desc li {
+            margin-bottom: 5px;
         }
         #language-select {
             margin: 10px auto;
             display: block;
         }
-        #download-jp-desc, #download-multi-desc {
-            text-align: left; /* 箇条書きを左寄せ */
-            font-size: 0.9em; /* フォントサイズを小さく */
-            margin: 0 auto 10px;
-            max-width: 800px; /* 中央揃えを維持しつつ幅を制限 */
+        /* モバイル対応: 画面が小さい場合に縦配置に戻す */
+        @media (max-width: 768px) {
+            #gemovie .download-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            #gemovie .download-left {
+                align-items: center;
+            }
+            #gemovie .download-left h3 {
+                text-align: center;
+            }
+            #gemovie .download-left .download-links {
+                align-items: center;
+            }
+            #gemovie .download-left .subtext {
+                text-align: center;
+            }
+            #gemovie .download-right {
+                text-align: center;
+                margin-top: 10px;
+            }
         }
     </style>
     <script>
@@ -591,8 +632,8 @@
                 nav_faq: "FAQ",
                 nav_contact: "संपर्क करें",
                 gemovie_p1: "एक नवीन उपकरण जो AI का उपयोग करके आपकी कहानी को तुरंत वीडियो में बदल देता है",
-                gemovie_p2: "Gemovie के साथ, आप AI की शक्ति से आसानी से स्थिर छवियों पर आधारित नैरेशन वाले वीडियो निःशुल्क बना सकते हैं.",
-                gemovie_p3: "*निर्माण के लिए Google खाता आवश्यक है.",
+                gemovie_p2: "Gemovie के साथ, आप AI की शक्ति से आसानी से स्थिर छवियों पर आधारित नैरेशन वाले वीडियो निःशुल्क बना सकते हैं।",
+                gemovie_p3: "*निर्माण के लिए Google खाता आवश्यक है।",
                 gemovie_h2: "डाउनलोड",
                 download_jp_h3: "जापानी संस्करण (VOICEVOX आवाज)",
                 download_multi_h3: "बहुभाषी संस्करण (coqui/XTTS-v2 आवाज)",
@@ -675,6 +716,8 @@
                 document.body.dir = "rtl";
                 document.getElementById('download-jp-desc').style.textAlign = "right";
                 document.getElementById('download-multi-desc').style.textAlign = "right";
+                // RTLの場合、左側と右側を反転（オプション）
+                // ここではシンプルにtext-alignをrightに
             } else {
                 document.body.dir = "ltr";
                 document.getElementById('download-jp-desc').style.textAlign = "left";
@@ -705,26 +748,34 @@
         <p id="gemovie-p3">※作成にはGoogleアカウントが必要です。</p>
         <h2 id="gemovie-h2">ダウンロード</h2>
         <div class="download-section">
-            <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
-            <ul id="download-jp-desc">
-                <li>商用利用可</li>
-                <li>30種類以上の音声モデルから音声生成可</li>
-            </ul>
-            <div class="download-links">
-                <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/GemovieInstaller_ja_0100.exe" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
-                <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/Gemovie_ja_0100.pkg" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
+            <div class="download-left">
+                <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
+                <div class="download-links">
+                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/GemovieInstaller_ja_0100.exe" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
+                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/Gemovie_ja_0100.pkg" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
+                </div>
+            </div>
+            <div class="download-right">
+                <ul id="download-jp-desc">
+                    <li>商用利用可</li>
+                    <li>30種類以上の音声モデルから音声生成可</li>
+                </ul>
             </div>
         </div>
         <div class="download-section">
-            <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)</h3>
-            <ul id="download-multi-desc">
-                <li>商用利用不可</li>
-                <li>クローン音声生成可</li>
-                <li>英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応</li>
-            </ul>
-            <div class="download-links">
-                <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/GemovieInstaller_mul_0100.exe" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
-                <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/Gemovie_mul_0100.pkg" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
+            <div class="download-left">
+                <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)</h3>
+                <div class="download-links">
+                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/GemovieInstaller_mul_0100.exe" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
+                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/Gemovie_mul_0100.pkg" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
+                </div>
+            </div>
+            <div class="download-right">
+                <ul id="download-multi-desc">
+                    <li>商用利用不可</li>
+                    <li>クローン音声生成可</li>
+                    <li>英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応</li>
+                </ul>
             </div>
         </div>
     </div>
