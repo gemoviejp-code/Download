@@ -55,6 +55,8 @@
             text-decoration: none;
             display: inline-block;
             text-align: center; /* ボタンのラベルは中央揃え */
+            flex: 1; /* ボタンの幅を均等に */
+            max-width: 200px; /* ボタンの最大幅を制限 */
         }
         button:hover, a.button:hover {
             opacity: 0.8;
@@ -107,14 +109,13 @@
         }
         #gemovie .download-left .download-links {
             display: flex;
-            flex-direction: column; /* ボタンを縦に配置 */
+            flex-direction: row; /* ボタンを横に配置 */
             align-items: flex-start; /* 左寄せ */
             gap: 10px;
             margin-top: auto; /* ボタンを下に配置 */
         }
         #gemovie .download-left a.button {
             margin: 0;
-            width: auto;
         }
         #gemovie .download-left .subtext {
             display: block;
@@ -155,7 +156,11 @@
                 text-align: center;
             }
             #gemovie .download-left .download-links {
+                flex-direction: column; /* モバイルではボタンを縦に */
                 align-items: center;
+            }
+            #gemovie .download-left a.button {
+                max-width: none; /* モバイルでは幅制限を解除 */
             }
             #gemovie .download-left .subtext {
                 text-align: center;
