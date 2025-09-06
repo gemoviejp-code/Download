@@ -12,7 +12,6 @@
             color: #102054; /* 紺 */
             margin: 0;
             padding: 0;
-            text-align: center; /* 全体のテキストを中央揃え */
         }
         .container {
             max-width: 1200px; /* 任意の幅 */
@@ -39,7 +38,7 @@
             display: none;
             padding: 20px;
             background-color: #FFFFFF;
-            text-align: center; /* タブ内のテキストを中央揃え */
+            text-align: left; /* タブ内のテキストを左寄せ */
         }
         #tab-gemovie:checked ~ #gemovie,
         #tab-usage:checked ~ #usage,
@@ -54,23 +53,22 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            margin: 0 auto; /* ボタンを中央に */
             display: inline-block;
-            text-align: center;
+            text-align: center; /* ボタンのラベルは中央揃え */
         }
         button:hover, a.button:hover {
             opacity: 0.8;
         }
         iframe {
             width: 100%;
-            max-width: 800px; /* 動画の幅を制限して中央揃えに見えるように */
+            max-width: 800px; /* 動画の幅を制限 */
             height: 315px;
             margin: 0 auto 20px; /* 中央揃え */
             display: block; /* 中央揃えのためにブロック要素に */
         }
         form {
             max-width: 600px;
-            margin: 0 auto; /* フォームはすでに中央揃え */
+            margin: 0 auto; /* フォームは中央揃え */
         }
         input, textarea {
             width: 100%;
@@ -79,19 +77,23 @@
             border: 1px solid #102054;
             background-color: #FFFFFF;
             color: #000080;
-            text-align: center; /* 入力テキストも中央揃え */
+            text-align: center; /* 入力テキストは中央揃え */
         }
         ::placeholder {
             color: #000080;
             text-align: center; /* プレースホルダーも中央揃え */
         }
+        #gemovie h1, #gemovie p, #usage h1, #usage h2, #faq h1, #faq p {
+            text-align: left; /* 見出しと段落を左寄せ */
+        }
         #gemovie .download-section {
             display: flex;
             flex-direction: row; /* 横に配置 */
-            align-items: flex-start; /* 上揃え */
+            align-items: stretch; /* 高さを揃える */
             justify-content: space-between; /* 左と右を分ける */
             margin-bottom: 50px;
             gap: 20px; /* 左側と右側の間隔 */
+            min-height: 150px; /* ボタンを下に配置するための最低高さ */
         }
         #gemovie .download-left {
             flex: 1;
@@ -101,7 +103,6 @@
         }
         #gemovie .download-left h3 {
             margin: 0 0 10px; /* 下に余白を追加 */
-            width: auto; /* 幅を自動に */
             text-align: left; /* 左寄せ */
         }
         #gemovie .download-left .download-links {
@@ -109,6 +110,7 @@
             flex-direction: column; /* ボタンを縦に配置 */
             align-items: flex-start; /* 左寄せ */
             gap: 10px;
+            margin-top: auto; /* ボタンを下に配置 */
         }
         #gemovie .download-left a.button {
             margin: 0;
@@ -122,12 +124,15 @@
         }
         #gemovie .download-right {
             flex: 1;
-            text-align: left; /* 右側の箇条書きを左寄せ（配置の右側だがテキストは左） */
+            display: flex;
+            align-items: flex-end; /* 箇条書きを下に配置 */
         }
         #download-jp-desc, #download-multi-desc {
             font-size: 0.9em; /* フォントサイズを小さく */
             margin: 0;
             padding-left: 20px; /* 箇条書きのインデント */
+            text-align: left; /* 左寄せ */
+            width: 100%;
         }
         #download-jp-desc li, #download-multi-desc li {
             margin-bottom: 5px;
@@ -158,6 +163,14 @@
             #gemovie .download-right {
                 text-align: center;
                 margin-top: 10px;
+                align-items: center;
+            }
+            #download-jp-desc, #download-multi-desc {
+                padding-left: 0;
+                text-align: center;
+            }
+            #gemovie h1, #gemovie p, #usage h1, #usage h2, #faq h1, #faq p {
+                text-align: center; /* モバイルでは中央揃え */
             }
         }
     </style>
@@ -716,12 +729,36 @@
                 document.body.dir = "rtl";
                 document.getElementById('download-jp-desc').style.textAlign = "right";
                 document.getElementById('download-multi-desc').style.textAlign = "right";
-                // RTLの場合、左側と右側を反転（オプション）
-                // ここではシンプルにtext-alignをrightに
+                document.getElementById('gemovie-p1').style.textAlign = "right";
+                document.getElementById('gemovie-p2').style.textAlign = "right";
+                document.getElementById('gemovie-p3').style.textAlign = "right";
+                document.getElementById('gemovie-h2').style.textAlign = "right";
+                document.getElementById('usage-h1').style.textAlign = "right";
+                document.getElementById('usage-jp-win-h2').style.textAlign = "right";
+                document.getElementById('usage-jp-mac-h2').style.textAlign = "right";
+                document.getElementById('usage-jp-use-h2').style.textAlign = "right";
+                document.getElementById('usage-multi-win-h2').style.textAlign = "right";
+                document.getElementById('usage-multi-mac-h2').style.textAlign = "right";
+                document.getElementById('usage-multi-use-h2').style.textAlign = "right";
+                document.getElementById('faq-h1').style.textAlign = "right";
+                document.getElementById('faq-p').style.textAlign = "right";
             } else {
                 document.body.dir = "ltr";
                 document.getElementById('download-jp-desc').style.textAlign = "left";
                 document.getElementById('download-multi-desc').style.textAlign = "left";
+                document.getElementById('gemovie-p1').style.textAlign = "left";
+                document.getElementById('gemovie-p2').style.textAlign = "left";
+                document.getElementById('gemovie-p3').style.textAlign = "left";
+                document.getElementById('gemovie-h2').style.textAlign = "left";
+                document.getElementById('usage-h1').style.textAlign = "left";
+                document.getElementById('usage-jp-win-h2').style.textAlign = "left";
+                document.getElementById('usage-jp-mac-h2').style.textAlign = "left";
+                document.getElementById('usage-jp-use-h2').style.textAlign = "left";
+                document.getElementById('usage-multi-win-h2').style.textAlign = "left";
+                document.getElementById('usage-multi-mac-h2').style.textAlign = "left";
+                document.getElementById('usage-multi-use-h2').style.textAlign = "left";
+                document.getElementById('faq-h1').style.textAlign = "left";
+                document.getElementById('faq-p').style.textAlign = "left";
             }
             document.documentElement.lang = langCode;
         }
@@ -735,78 +772,78 @@
         <label for="tab-contact" id="nav-contact">お問い合わせ</label>
     </nav>
 
-<div class="container">
-    <input type="radio" id="tab-gemovie" name="tab" checked>
-    <input type="radio" id="tab-usage" name="tab">
-    <input type="radio" id="tab-faq" name="tab">
-    <input type="radio" id="tab-contact" name="tab">
+    <div class="container">
+        <input type="radio" id="tab-gemovie" name="tab" checked>
+        <input type="radio" id="tab-usage" name="tab">
+        <input type="radio" id="tab-faq" name="tab">
+        <input type="radio" id="tab-contact" name="tab">
 
-    <div id="gemovie" class="tab-content">
-        <h1>Gemovie</h1>
-        <p id="gemovie-p1">AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
-        <p id="gemovie-p2">Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
-        <p id="gemovie-p3">※作成にはGoogleアカウントが必要です。</p>
-        <h2 id="gemovie-h2">ダウンロード</h2>
-        <div class="download-section">
-            <div class="download-left">
-                <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
-                <div class="download-links">
-                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/GemovieInstaller_ja_0100.exe" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
-                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/Gemovie_ja_0100.pkg" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
+        <div id="gemovie" class="tab-content">
+            <h1>Gemovie</h1>
+            <p id="gemovie-p1">AIがあなたのストーリーを瞬時に動画化する革新的ツール</p>
+            <p id="gemovie-p2">Gemovieを使うとAIの力で簡単に静止画ベースのナレーション付き動画を無料で作成できます。</p>
+            <p id="gemovie-p3">※作成にはGoogleアカウントが必要です。</p>
+            <h2 id="gemovie-h2">ダウンロード</h2>
+            <div class="download-section">
+                <div class="download-left">
+                    <h3 id="download-jp-h3">日本語版 (VOICEVOX 音声)</h3>
+                    <div class="download-links">
+                        <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/GemovieInstaller_ja_0100.exe" class="button" id="button-win-jp">Windows用インストーラー<span class="subtext" id="subtext-win-jp">(Windows10以降のみ)</span></a>
+                        <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_ja/Gemovie_ja_0100.pkg" class="button" id="button-mac-jp">MacOS用インストーラー<span class="subtext" id="subtext-mac-jp">(Apple Siliconのみ)</span></a>
+                    </div>
+                </div>
+                <div class="download-right">
+                    <ul id="download-jp-desc">
+                        <li>商用利用可</li>
+                        <li>30種類以上の音声モデルから音声生成可</li>
+                    </ul>
                 </div>
             </div>
-            <div class="download-right">
-                <ul id="download-jp-desc">
-                    <li>商用利用可</li>
-                    <li>30種類以上の音声モデルから音声生成可</li>
-                </ul>
-            </div>
-        </div>
-        <div class="download-section">
-            <div class="download-left">
-                <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)</h3>
-                <div class="download-links">
-                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/GemovieInstaller_mul_0100.exe" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
-                    <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/Gemovie_mul_0100.pkg" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
+            <div class="download-section">
+                <div class="download-left">
+                    <h3 id="download-multi-h3">多言語版 (coqui/XTTS-v2 音声)</h3>
+                    <div class="download-links">
+                        <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/GemovieInstaller_mul_0100.exe" class="button" id="button-win-multi">Windows用インストーラー<span class="subtext" id="subtext-win-multi">(Windows10以降のみ)</span></a>
+                        <a href="https://github.com/gemoviejp-code/Download/releases/download/Ver.1.0.0_mul/Gemovie_mul_0100.pkg" class="button" id="button-mac-multi">MacOS用インストーラー<span class="subtext" id="subtext-mac-multi">(Apple Siliconのみ)</span></a>
+                    </div>
+                </div>
+                <div class="download-right">
+                    <ul id="download-multi-desc">
+                        <li>商用利用不可</li>
+                        <li>クローン音声生成可</li>
+                        <li>英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応</li>
+                    </ul>
                 </div>
             </div>
-            <div class="download-right">
-                <ul id="download-multi-desc">
-                    <li>商用利用不可</li>
-                    <li>クローン音声生成可</li>
-                    <li>英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応</li>
-                </ul>
-            </div>
+        </div>
+        <div id="usage" class="tab-content">
+            <h1 id="usage-h1">使い方</h1>
+            <h2 id="usage-jp-win-h2">日本語版 Windowsインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
+            <h2 id="usage-jp-mac-h2">日本語版 MacOSインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+            <h2 id="usage-jp-use-h2">日本語版 使い方</h2>
+            <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
+            <h2 id="usage-multi-win-h2">多言語版 Windowsインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
+            <h2 id="usage-multi-mac-h2">多言語版 MacOSインストール手順</h2>
+            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+            <h2 id="usage-multi-use-h2">多言語版 使い方</h2>
+            <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="faq" class="tab-content">
+            <h1 id="faq-h1">FAQ</h1>
+            <p id="faq-p">TBD</p>
+        </div>
+        <div id="contact" class="tab-content">
+            <iframe id="contact-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true&hl=ja" 
+                    width="100%" 
+                    style="max-width: 640px; height: 100vh; margin: 0 auto; display: block;" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">読み込んでいます…</iframe>
         </div>
     </div>
-    <div id="usage" class="tab-content">
-        <h1 id="usage-h1">使い方</h1>
-        <h2 id="usage-jp-win-h2">日本語版 Windowsインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/kHJKURs8I9o" frameborder="0" allowfullscreen></iframe>
-        <h2 id="usage-jp-mac-h2">日本語版 MacOSインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-        <h2 id="usage-jp-use-h2">日本語版 使い方</h2>
-        <iframe src="https://www.youtube.com/embed/hnxmviv7bk0" frameborder="0" allowfullscreen></iframe>
-        <h2 id="usage-multi-win-h2">多言語版 Windowsインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/CyXxWbdHxfk" frameborder="0" allowfullscreen></iframe>
-        <h2 id="usage-multi-mac-h2">多言語版 MacOSインストール手順</h2>
-        <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
-        <h2 id="usage-multi-use-h2">多言語版 使い方</h2>
-        <iframe src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div id="faq" class="tab-content">
-        <h1 id="faq-h1">FAQ</h1>
-        <p id="faq-p">TBD</p>
-    </div>
-    <div id="contact" class="tab-content">
-        <iframe id="contact-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw/viewform?embedded=true&hl=ja" 
-                width="100%" 
-                style="max-width: 640px; height: 100vh; margin: 0 auto; display: block;" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">読み込んでいます…</iframe>
-    </div>
-</div>
     <select id="language-select" onchange="changeLanguage(this.value)">
         <option value="English">English</option>
         <option value="Español">Español</option>
@@ -826,10 +863,10 @@
         <option value="한국어">한국어</option>
         <option value="हिन्दी">हिन्दी</option>
     </select>
-<script>
-    window.onload = function() {
-        changeLanguage('日本語');
-    };
-</script>
+    <script>
+        window.onload = function() {
+            changeLanguage('日本語');
+        };
+    </script>
 </body>
 </html>
