@@ -44,8 +44,29 @@
             width: 100%;
             max-width: 800px;
             aspect-ratio: 16 / 9;
-            margin: 0 auto 20px;
             display: block;
+        }
+        .video-and-guide {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .guide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 300px;
+        }
+        .guide p {
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+        .guide img {
+            max-width: 100%;
+            height: auto;
         }
         #tab-gemovie:checked ~ #gemovie,
         #tab-usage:checked ~ #usage,
@@ -181,6 +202,13 @@
             #gemovie h1, #gemovie p, #usage h1, #usage h2, #faq h1, #faq p {
                 text-align: center; /* モバイルでは中央揃え */
             }
+            .video-and-guide {
+                flex-direction: column;
+                align-items: center;
+            }
+            .guide {
+                margin-top: 20px;
+            }
         }
     </style>
     <script>
@@ -212,7 +240,8 @@
                 download_jp_desc2: "Can generate voices from over 30 voice models",
                 download_multi_desc1: "Commercial use not allowed",
                 download_multi_desc2: "Cloned voice generation possible",
-                download_multi_desc3: "Supports English, Spanish, French, German, Italian, Portuguese, Polish, Turkish, Russian, Dutch, Czech, Arabic, Chinese, Japanese, Hungarian, Korean, Hindi"
+                download_multi_desc3: "Supports English, Spanish, French, German, Italian, Portuguese, Polish, Turkish, Russian, Dutch, Czech, Arabic, Chinese, Japanese, Hungarian, Korean, Hindi",
+                installer_open_text: "How to Open the Installer"
             },
             "Español": {
                 nav_usage: "Cómo usar",
@@ -241,7 +270,8 @@
                 download_jp_desc2: "Puede generar voces a partir de más de 30 modelos de voz",
                 download_multi_desc1: "Uso comercial no permitido",
                 download_multi_desc2: "Puede generar voces clonadas",
-                download_multi_desc3: "Compatible con inglés, español, francés, alemán, italiano, portugués, polaco, turco, ruso, neerlandés, checo, árabe, chino, japonés, húngaro, coreano, hindi"
+                download_multi_desc3: "Compatible con inglés, español, francés, alemán, italiano, portugués, polaco, turco, ruso, neerlandés, checo, árabe, chino, japonés, húngaro, coreano, hindi",
+                installer_open_text: "Cómo Abrir el Instalador"
             },
             "Français": {
                 nav_usage: "Comment utiliser",
@@ -270,7 +300,8 @@
                 download_jp_desc2: "Peut générer des voix à partir de plus de 30 modèles de voix",
                 download_multi_desc1: "Utilisation commerciale non autorisée",
                 download_multi_desc2: "Peut générer des voix clonées",
-                download_multi_desc3: "Prend en charge l'anglais, l'espagnol, le français, l'allemand, l'italien, le portugais, le polonais, le turc, le russe, le néerlandais, le tchèque, l'arabe, le chinois, le japonais, le hongrois, le coréen, l'hindi"
+                download_multi_desc3: "Prend en charge l'anglais, l'espagnol, le français, l'allemand, l'italien, le portugais, le polonais, le turc, le russe, le néerlandais, le tchèque, l'arabe, le chinois, le japonais, le hongrois, le coréen, l'hindi",
+                installer_open_text: "Comment Ouvrir l'Installateur"
             },
             "Deutsch": {
                 nav_usage: "Verwendung",
@@ -299,7 +330,8 @@
                 download_jp_desc2: "Kann Stimmen aus über 30 Stimmmodelle generieren",
                 download_multi_desc1: "Kommerzielle Nutzung nicht erlaubt",
                 download_multi_desc2: "Kann geklonte Stimmen generieren",
-                download_multi_desc3: "Unterstützt Englisch, Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Polnisch, Türkisch, Russisch, Niederländisch, Tschechisch, Arabisch, Chinesisch, Japanisch, Ungarisch, Koreanisch, Hindi"
+                download_multi_desc3: "Unterstützt Englisch, Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Polnisch, Türkisch, Russisch, Niederländisch, Tschechisch, Arabisch, Chinesisch, Japanisch, Ungarisch, Koreanisch, Hindi",
+                installer_open_text: "So Öffnen Sie den Installer"
             },
             "Italiano": {
                 nav_usage: "Come usare",
@@ -328,7 +360,8 @@
                 download_jp_desc2: "Può generare voci da oltre 30 modelli vocali",
                 download_multi_desc1: "Uso commerciale non consentito",
                 download_multi_desc2: "Può generare voci clonate",
-                download_multi_desc3: "Supporta inglese, spagnolo, francese, tedesco, italiano, portoghese, polacco, turco, russo, olandese, ceco, arabo, cinese, giapponese, ungherese, coreano, hindi"
+                download_multi_desc3: "Supporta inglese, spagnolo, francese, tedesco, italiano, portoghese, polacco, turco, russo, olandese, ceco, arabo, cinese, giapponese, ungherese, coreano, hindi",
+                installer_open_text: "Come Aprire l'Installer"
             },
             "Português": {
                 nav_usage: "Como usar",
@@ -357,7 +390,8 @@
                 download_jp_desc2: "Pode gerar vozes a partir de mais de 30 modelos de voz",
                 download_multi_desc1: "Uso comercial não permitido",
                 download_multi_desc2: "Pode gerar vozes clonadas",
-                download_multi_desc3: "Suporta inglês, espanhol, francês, alemão, italiano, português, polonês, turco, russo, holandês, tcheco, árabe, chinês, japonês, húngaro, coreano, hindi"
+                download_multi_desc3: "Suporta inglês, espanhol, francês, alemão, italiano, português, polonês, turco, russo, holandês, tcheco, árabe, chinês, japonês, húngaro, coreano, hindi",
+                installer_open_text: "Como Abrir o Instalador"
             },
             "Polski": {
                 nav_usage: "Jak używać",
@@ -386,7 +420,8 @@
                 download_jp_desc2: "Może generować głosy z ponad 30 modeli głosowych",
                 download_multi_desc1: "Użycie komercyjne niedozwolone",
                 download_multi_desc2: "Może generować sklonowane głosy",
-                download_multi_desc3: "Obsługuje angielski, hiszpański, francuski, niemiecki, włoski, portugalski, polski, turecki, rosyjski, holenderski, czeski, arabski, chiński, japoński, węgierski, koreański, hindi"
+                download_multi_desc3: "Obsługuje angielski, hiszpański, francuski, niemiecki, włoski, portugalski, polski, turecki, rosyjski, holenderski, czeski, arabski, chiński, japoński, węgierski, koreański, hindi",
+                installer_open_text: "Jak Otworzyć Instalator"
             },
             "Türkçe": {
                 nav_usage: "Nasıl kullanılır",
@@ -415,7 +450,8 @@
                 download_jp_desc2: "30'dan fazla ses modelinden ses üretebilir",
                 download_multi_desc1: "Ticari kullanım izinli değil",
                 download_multi_desc2: "Klonlanmış ses üretimi mümkün",
-                download_multi_desc3: "İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Portekizce, Lehçe, Türkçe, Rusça, Hollandaca, Çekçe, Arapça, Çince, Japonca, Macarca, Korece, Hintçe destekler"
+                download_multi_desc3: "İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Portekizce, Lehçe, Türkçe, Rusça, Hollandaca, Çekçe, Arapça, Çince, Japonca, Macarca, Korece, Hintçe destekler",
+                installer_open_text: "Kurulumu Nasıl Açılır"
             },
             "Русский": {
                 nav_usage: "Как использовать",
@@ -444,7 +480,8 @@
                 download_jp_desc2: "Может генерировать голоса из более чем 30 моделей голоса",
                 download_multi_desc1: "Коммерческое использование запрещено",
                 download_multi_desc2: "Может генерировать клонированные голоса",
-                download_multi_desc3: "Поддерживает английский, испанский, французский, немецкий, итальянский, португальский, польский, турецкий, русский, нидерландский, чешский, арабский, китайский, японский, венгерский, корейский, хинди"
+                download_multi_desc3: "Поддерживает английский, испанский, французский, немецкий, итальянский, португальский, польский, турецкий, русский, нидерландский, чешский, арабский, китайский, японский, венгерский, корейский, хинди",
+                installer_open_text: "Как Открыть Установщик"
             },
             "Nederlands": {
                 nav_usage: "Hoe te gebruiken",
@@ -473,7 +510,8 @@
                 download_jp_desc2: "Kan stemmen genereren uit meer dan 30 stemmodellen",
                 download_multi_desc1: "Commercieel gebruik niet toegestaan",
                 download_multi_desc2: "Kan gekloonde stemmen genereren",
-                download_multi_desc3: "Ondersteunt Engels, Spaans, Frans, Duits, Italiaans, Portugees, Pools, Turks, Russisch, Nederlands, Tsjechisch, Arabisch, Chinees, Japans, Hongaars, Koreaans, Hindi"
+                download_multi_desc3: "Ondersteunt Engels, Spaans, Frans, Duits, Italiaans, Portugees, Pools, Turks, Russisch, Nederlands, Tsjechisch, Arabisch, Chinees, Japans, Hongaars, Koreaans, Hindi",
+                installer_open_text: "Hoe de Installer te Openen"
             },
             "Čeština": {
                 nav_usage: "Jak používat",
@@ -502,7 +540,8 @@
                 download_jp_desc2: "Lze generovat hlasy z více než 30 hlasových modelů",
                 download_multi_desc1: "Komerční použití nepovoleno",
                 download_multi_desc2: "Lze generovat klonované hlasy",
-                download_multi_desc3: "Podporuje angličtinu, španělštinu, francouzštinu, němčinu, italštinu, portugalštinu, polštinu, turečtinu, ruštinu, nizozemštinu, češtinu, arabštinu, čínštinu, japonštinu, maďarštinu, korejštinu, hindštinu"
+                download_multi_desc3: "Podporuje angličtinu, španělštinu, francouzštinu, němčinu, italštinu, portugalštinu, polštinu, turečtinu, ruštinu, nizozemštinu, češtinu, arabštinu, čínštinu, japonštinu, maďarštinu, korejštinu, hindštinu",
+                installer_open_text: "Jak Otevřít Instalační Program"
             },
             "العربية": {
                 nav_usage: "كيفية الاستخدام",
@@ -531,7 +570,8 @@
                 download_jp_desc2: "يمكن توليد الأصوات من أكثر من 30 نموذج صوتي",
                 download_multi_desc1: "الاستخدام التجاري غير مسموح",
                 download_multi_desc2: "يمكن توليد أصوات مستنسخة",
-                download_multi_desc3: "يدعم الإنجليزية، الإسبانية، الفرنسية، الألمانية، الإيطالية، البرتغالية، البولندية، التركية، الروسية، الهولندية، التشيكية، العربية، الصينية، اليابانية، المجرية، الكورية، الهندية"
+                download_multi_desc3: "يدعم الإنجليزية، الإسبانية، الفرنسية، الألمانية، الإيطالية، البرتغالية، البولندية، التركية، الروسية، الهولندية، التشيكية، العربية، الصينية، اليابانية، المجرية، الكورية، الهندية",
+                installer_open_text: "كيفية فتح المثبت"
             },
             "中文": {
                 nav_usage: "使用方法",
@@ -560,7 +600,8 @@
                 download_jp_desc2: "可从30多种语音模型生成语音",
                 download_multi_desc1: "不允许商业使用",
                 download_multi_desc2: "可生成克隆语音",
-                download_multi_desc3: "支持英语、西班牙语、法语、德语、意大利语、葡萄牙语、波兰语、土耳其语、俄语、荷兰语、捷克语、阿拉伯语、中文、日语、匈牙利语、韩语、印地语"
+                download_multi_desc3: "支持英语、西班牙语、法语、德语、意大利语、葡萄牙语、波兰语、土耳其语、俄语、荷兰语、捷克语、阿拉伯语、中文、日语、匈牙利语、韩语、印地语",
+                installer_open_text: "如何打开安装程序"
             },
             "日本語": {
                 nav_usage: "使い方",
@@ -589,7 +630,8 @@
                 download_jp_desc2: "30種類以上の音声モデルから音声生成可",
                 download_multi_desc1: "商用利用不可",
                 download_multi_desc2: "クローン音声生成可",
-                download_multi_desc3: "英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応"
+                download_multi_desc3: "英語、スペイン語、フランス語、ドイツ語、イタリア語、ポルトガル語、ポーランド語、トルコ語、ロシア語、オランダ語、チェコ語、アラビア語、中国語、日本語、ハンガリー語、韓国語、ヒンディー語に対応",
+                installer_open_text: "インストーラーの開き方"
             },
             "Magyar": {
                 nav_usage: "Használata",
@@ -618,7 +660,8 @@
                 download_jp_desc2: "Hangok generálhatók több mint 30 hangmodellből",
                 download_multi_desc1: "Kereskedelmi használat nem engedélyezett",
                 download_multi_desc2: "Klonozott hangok generálhatók",
-                download_multi_desc3: "Támogatja az angolt, spanyolt, franciát, németet, olaszt, portugált, lengyelt, törököt, oroszt, hollandot, csehet, arabot, kínait, japánt, magyart, koreait, hindit"
+                download_multi_desc3: "Támogatja az angolt, spanyolt, franciát, németet, olaszt, portugált, lengyelt, törököt, oroszt, hollandot, csehet, arabot, kínait, japánt, magyart, koreait, hindit",
+                installer_open_text: "Hogyan Nyissa Meg a Telepítőt"
             },
             "한국어": {
                 nav_usage: "사용법",
@@ -647,7 +690,8 @@
                 download_jp_desc2: "30종 이상의 음성 모델에서 음성 생성 가능",
                 download_multi_desc1: "상업적 사용 불가",
                 download_multi_desc2: "클론 음성 생성 가능",
-                download_multi_desc3: "영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 폴란드어, 터키어, 러시아어, 네덜란드어, 체코어, 아랍어, 중국어, 일본어, 헝가리어, 한국어, 힌디어 지원"
+                download_multi_desc3: "영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 폴란드어, 터키어, 러시아어, 네덜란드어, 체코어, 아랍어, 중국어, 일본어, 헝가리어, 한국어, 힌디어 지원",
+                installer_open_text: "설치 프로그램 열기 방법"
             },
             "हिन्दी": {
                 nav_usage: "उपयोग कैसे करें",
@@ -676,7 +720,8 @@
                 download_jp_desc2: "30 से अधिक वॉयस मॉडल से वॉयस उत्पन्न कर सकते हैं",
                 download_multi_desc1: "व्यावसायिक उपयोग की अनुमति नहीं है",
                 download_multi_desc2: "क्लोन वॉयस उत्पन्न कर सकते हैं",
-                download_multi_desc3: "अंग्रेजी, स्पेनिश, फ्रेंच, जर्मन, इटालियन, पुर्तगाली, पोलिश, तुर्की, रूसी, डच, चेक, अरबी, चीनी, जापानी, हंगेरियन, कोरियन, हिंदी का समर्थन करता है"
+                download_multi_desc3: "अंग्रेजी, स्पेनिश, फ्रेंच, जर्मन, इटालियन, पुर्तगाली, पोलिश, तुर्की, रूसी, डच, चेक, अरबी, चीनी, जापानी, हंगेरियन, कोरियन, हिंदी का समर्थन करता है",
+                installer_open_text: "इंस्टॉलर कैसे खोलें"
             }
         };
 
@@ -728,6 +773,11 @@
             document.getElementById('download-jp-desc').innerHTML = '<li>' + trans.download_jp_desc1 + '</li><li>' + trans.download_jp_desc2 + '</li>';
             document.getElementById('download-multi-desc').innerHTML = '<li>' + trans.download_multi_desc1 + '</li><li>' + trans.download_multi_desc2 + '</li><li>' + trans.download_multi_desc3 + '</li>';
 
+            document.getElementById('installer-text-jp-win').innerText = trans.installer_open_text;
+            document.getElementById('installer-text-jp-mac').innerText = trans.installer_open_text;
+            document.getElementById('installer-text-multi-win').innerText = trans.installer_open_text;
+            document.getElementById('installer-text-multi-mac').innerText = trans.installer_open_text;
+
             const langCode = langCodes[lang] || "en";
             const formId = "1FAIpQLSdGzz8E1F3gt4PuLjCe3A5YvODlGdIDc9h2sSSyVH5x7AV7Kw";
             const baseSrc = `https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true&hl=${langCode}`;
@@ -751,6 +801,8 @@
                 document.getElementById('usage-multi-use-h2').style.textAlign = "right";
                 document.getElementById('faq-h1').style.textAlign = "right";
                 document.getElementById('faq-p').style.textAlign = "right";
+                const guides = document.querySelectorAll('.guide');
+                guides.forEach(guide => guide.style.textAlign = "right");
             } else {
                 document.body.dir = "ltr";
                 document.getElementById('download-jp-desc').style.textAlign = "left";
@@ -768,6 +820,8 @@
                 document.getElementById('usage-multi-use-h2').style.textAlign = "left";
                 document.getElementById('faq-h1').style.textAlign = "left";
                 document.getElementById('faq-p').style.textAlign = "left";
+                const guides = document.querySelectorAll('.guide');
+                guides.forEach(guide => guide.style.textAlign = "center");
             }
             document.documentElement.lang = langCode;
         }
@@ -828,15 +882,39 @@
         <div id="usage" class="tab-content">
             <h1 id="usage-h1">使い方</h1>
             <h2 id="usage-jp-win-h2">日本語版 Windowsインストール手順</h2>
-            <iframe class="youtube-video" src="https://www.youtube.com/embed/CgneIRXhUSQ" frameborder="0" allowfullscreen></iframe>
+            <div class="video-and-guide">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/CgneIRXhUSQ" frameborder="0" allowfullscreen></iframe>
+                <div class="guide">
+                    <p id="installer-text-jp-win">インストーラーの開き方</p>
+                    <img src="https://raw.githubusercontent.com/gemoviejp-code/Download/main/assets/img/japanese_windows_open.png" alt="Japanese Windows Open">
+                </div>
+            </div>
             <h2 id="usage-jp-mac-h2">日本語版 MacOSインストール手順</h2>
-            <iframe class="youtube-video" src="https://www.youtube.com/embed/ORLJkDV9yQQ" frameborder="0" allowfullscreen></iframe>
+            <div class="video-and-guide">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/ORLJkDV9yQQ" frameborder="0" allowfullscreen></iframe>
+                <div class="guide">
+                    <p id="installer-text-jp-mac">インストーラーの開き方</p>
+                    <img src="https://raw.githubusercontent.com/gemoviejp-code/Download/main/assets/img/japanese_mac_open.png" alt="Japanese Mac Open">
+                </div>
+            </div>
             <h2 id="usage-jp-use-h2">日本語版 使い方</h2>
             <iframe class="youtube-video" src="https://www.youtube.com/embed/nBsW3ZF6-i4" frameborder="0" allowfullscreen></iframe>
             <h2 id="usage-multi-win-h2">多言語版 Windowsインストール手順</h2>
-            <iframe class="youtube-video" src="https://www.youtube.com/embed/z69VubSmTqY" frameborder="0" allowfullscreen></iframe>
+            <div class="video-and-guide">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/z69VubSmTqY" frameborder="0" allowfullscreen></iframe>
+                <div class="guide">
+                    <p id="installer-text-multi-win">インストーラーの開き方</p>
+                    <img src="https://raw.githubusercontent.com/gemoviejp-code/Download/main/assets/img/multi_windows_open.png" alt="Multi Windows Open">
+                </div>
+            </div>
             <h2 id="usage-multi-mac-h2">多言語版 MacOSインストール手順</h2>
-            <iframe class="youtube-video" src="https://www.youtube.com/embed/Ow1orw7wrL0" frameborder="0" allowfullscreen></iframe>
+            <div class="video-and-guide">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/Ow1orw7wrL0" frameborder="0" allowfullscreen></iframe>
+                <div class="guide">
+                    <p id="installer-text-multi-mac">インストーラーの開き方</p>
+                    <img src="https://raw.githubusercontent.com/gemoviejp-code/Download/main/assets/img/multi_mac_open.png" alt="Multi Mac Open">
+                </div>
+            </div>
             <h2 id="usage-multi-use-h2">多言語版 使い方</h2>
             <iframe class="youtube-video" src="https://www.youtube.com/embed/SoTKWsDnLHM" frameborder="0" allowfullscreen></iframe>
         </div>
