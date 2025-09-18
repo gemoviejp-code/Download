@@ -977,15 +977,20 @@
         <option value="हिन्दी">हिन्दी</option>
     </select>
     <script>
+        // 新しいwindow.onload関数
         window.onload = function() {
-            changeLanguage('日本語');
+            // URLからクエリパラメータを取得
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || '日本語';  // パラメータがない場合は日本語をデフォルトに
+        
+            // 存在する言語か確認
+            if (translations[lang]) {
+                changeLanguage(lang);
+                document.getElementById('language-select').value = lang;  // セレクトボックスを同期
+            } else {
+                changeLanguage('日本語');  // 無効な場合はデフォルトに戻す
+            }
         };
-        function jumpToUsage(sectionId) {
-            document.getElementById('tab-usage').checked = true; // 使い方タブを選択
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' }); // 指定セクションにスムーズスクロール
-            }, 100); // タブ切り替え後の遅延でスクロール
-        }
     </script>
 </body>
 </html>
