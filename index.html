@@ -991,6 +991,12 @@
                 changeLanguage('日本語');  // 無効な場合はデフォルトに戻す
             }
         };
+        function jumpToUsage(sectionId) {
+            document.getElementById('tab-usage').checked = true; // 使い方タブを選択
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' }); // 指定セクションにスムーズスクロール
+            }, 100); // タブ切り替え後の遅延でスクロール
+        }
     </script>
 </body>
 </html>
