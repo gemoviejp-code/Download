@@ -1113,7 +1113,56 @@
         }
 
         function openDonation() {
-            window.open('https://paypal.me/GemovieJP/1000JPY', '_blank');
+            const lang = document.getElementById('language-select').value;
+            let url = "https://paypal.me/GemovieJP/10USD"; // default
+            if (lang === "日本語") {
+                url = "https://paypal.me/GemovieJP/1000JPY";
+            } else if (lang === "English") {
+                url = "https://paypal.me/GemovieJP/10USD";
+            } else if (lang === "العربية") {
+                url = "https://paypal.me/GemovieJP/10USD";
+            } else if (lang === "中文") {
+                url = "https://paypal.me/GemovieJP/50CNY";
+            } else if (lang === "Dansk") {
+                url = "https://paypal.me/GemovieJP/50DKK";
+            } else if (lang === "Nederlands") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Suomi") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Français") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Deutsch") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Ελληνικά") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "עברית") {
+                url = "https://paypal.me/GemovieJP/50ILS";
+            } else if (lang === "हिन्दी") {
+                url = "https://paypal.me/GemovieJP/10USD";
+            } else if (lang === "Italiano") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "한국어") {
+                url = "https://paypal.me/GemovieJP/10USD";
+            } else if (lang === "Bahasa Melayu") {
+                url = "https://paypal.me/GemovieJP/50MYR";
+            } else if (lang === "Norsk") {
+                url = "https://paypal.me/GemovieJP/100NOK";
+            } else if (lang === "Polski") {
+                url = "https://paypal.me/GemovieJP/10PLN";
+            } else if (lang === "Português") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Русский") {
+                url = "https://paypal.me/GemovieJP/1000RUB";
+            } else if (lang === "Español") {
+                url = "https://paypal.me/GemovieJP/10EUR";
+            } else if (lang === "Svenska") {
+                url = "https://paypal.me/GemovieJP/15SEK";
+            } else if (lang === "Kiswahili") {
+                url = "https://paypal.me/GemovieJP/10USD";
+            } else if (lang === "Türkçe") {
+                url = "https://paypal.me/GemovieJP/200TRY";
+            }
+            window.open(url, '_blank');
         }
     </script>
 </head>
